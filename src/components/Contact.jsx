@@ -16,7 +16,7 @@ export default function Contact({ data, onDownload }) {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="card mt-12 p-10 text-center md:p-12">
+          <div className="card card-accent mt-12 p-10 text-center md:p-12">
             <div className="grid gap-6 sm:grid-cols-3">
               <div className="flex flex-col items-center gap-2 text-ink/85">
                 <Phone className="h-6 w-6 text-saffron" />

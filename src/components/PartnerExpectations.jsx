@@ -12,7 +12,7 @@ export default function PartnerExpectations({ data }) {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="card mt-12 p-10 md:p-14">
+          <div className="card card-accent mt-12 p-10 md:p-14">
             <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-sunshine to-saffron text-white shadow-sun">
               <HeartHandshake className="h-7 w-7" strokeWidth={1.5} />
             </span>

@@ -36,7 +36,7 @@ export default function App() {
         {loading && <LoadingScreen data={profileData.loading} />}
       </AnimatePresence>
 
-      <FloatingSunflowers count={9} />
+      <FloatingSunflowers count={20} />
 
       <main className="relative z-10">
         <Hero data={profileData.hero} onView={scrollToProfile} onDownload={downloadBiodata} />

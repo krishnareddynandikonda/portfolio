@@ -6,7 +6,9 @@ export default {
       colors: {
         sunflower: '#F5B700',
         sunshine: '#FFC93C',
+        turmeric: '#E5A000',
         saffron: '#EE7B0C',
+        kumkum: '#C1121F',
         peacock: '#0E7C9B',
         lotus: '#E5639B',
         emerald: '#1E7A52',
@@ -40,11 +42,21 @@ export default {
           '0%, 100%': { opacity: '0.55', transform: 'scale(1)' },
           '50%': { opacity: '1', transform: 'scale(1.08)' },
         },
+        sway: {
+          '0%, 100%': { transform: 'translateY(0) rotate(-6deg)' },
+          '50%': { transform: 'translateY(-10px) rotate(6deg)' },
+        },
+        drift: {
+          '0%': { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '120px 0' },
+        },
       },
       animation: {
         spinSlow: 'spinSlow 70s linear infinite',
         spinRev: 'spinSlow 95s linear infinite reverse',
         glow: 'glow 3.5s ease-in-out infinite',
+        sway: 'sway 6s ease-in-out infinite',
+        spin12: 'spinSlow 12s linear infinite',
       },
     },
   },

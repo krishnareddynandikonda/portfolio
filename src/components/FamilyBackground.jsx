@@ -20,10 +20,11 @@ export default function FamilyBackground({ data }) {
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {data.members.map((m, i) => {
             const Icon = Icons[m.icon] || Icons.UserRound
+            const iconBg = ['from-peacock to-emerald', 'from-lotus to-kumkum', 'from-sunshine to-saffron'][i % 3]
             return (
               <Reveal key={m.role} delay={i * 0.08}>
-                <div className="card flex h-full flex-col items-center px-6 py-8 text-center transition-transform duration-300 hover:-translate-y-1">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-sunshine to-saffron text-white shadow-sun">
+                <div className="card card-accent flex h-full flex-col items-center px-6 py-8 text-center transition-transform duration-300 hover:-translate-y-1">
+                  <span className={`flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br ${iconBg} text-white shadow-sun`}>
                     <Icon className="h-6 w-6" strokeWidth={1.6} />
                   </span>
                   <p className="eyebrow mt-4 text-[10px] text-saffron">{m.role}</p>

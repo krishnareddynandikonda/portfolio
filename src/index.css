@@ -44,35 +44,43 @@ body {
     color: transparent;
   }
 
-  /* ---- Section backgrounds ---- */
+  /* ---- Section backgrounds (rich, multi-color) ---- */
   .cream-bg {
     background:
-      radial-gradient(900px 500px at 10% -5%, rgba(245, 183, 0, 0.12), transparent 55%),
-      radial-gradient(900px 600px at 100% 105%, rgba(229, 99, 155, 0.08), transparent 55%),
-      linear-gradient(180deg, #fffdf6 0%, #fff6df 100%);
+      radial-gradient(720px 440px at 8% -5%, rgba(245, 183, 0, 0.28), transparent 60%),
+      radial-gradient(680px 460px at 100% 8%, rgba(14, 124, 155, 0.14), transparent 60%),
+      radial-gradient(760px 520px at 92% 108%, rgba(229, 99, 155, 0.18), transparent 60%),
+      radial-gradient(620px 460px at 0% 105%, rgba(30, 122, 82, 0.12), transparent 60%),
+      linear-gradient(180deg, #fff7e0 0%, #fff0c9 100%);
   }
   .sun-bg {
     background:
-      radial-gradient(1000px 600px at 50% -10%, rgba(255, 211, 77, 0.55), transparent 60%),
-      radial-gradient(700px 500px at 90% 110%, rgba(238, 123, 12, 0.16), transparent 60%),
-      linear-gradient(180deg, #fff3cf 0%, #ffe6a6 100%);
+      radial-gradient(900px 560px at 50% -12%, rgba(255, 201, 60, 0.85), transparent 62%),
+      radial-gradient(640px 480px at 8% 100%, rgba(193, 18, 31, 0.14), transparent 58%),
+      radial-gradient(680px 480px at 96% 96%, rgba(238, 123, 12, 0.30), transparent 60%),
+      linear-gradient(180deg, #ffeaa6 0%, #ffd87a 100%);
   }
   .petal-bg {
     background:
-      radial-gradient(800px 500px at 0% 0%, rgba(229, 99, 155, 0.10), transparent 55%),
-      radial-gradient(800px 500px at 100% 100%, rgba(14, 124, 155, 0.08), transparent 55%),
-      linear-gradient(180deg, #fffdf6 0%, #fdfaf0 100%);
+      radial-gradient(760px 480px at 0% 0%, rgba(229, 99, 155, 0.22), transparent 58%),
+      radial-gradient(760px 480px at 100% 100%, rgba(14, 124, 155, 0.18), transparent 58%),
+      radial-gradient(640px 440px at 100% 0%, rgba(245, 183, 0, 0.22), transparent 58%),
+      radial-gradient(640px 440px at 0% 100%, rgba(30, 122, 82, 0.14), transparent 58%),
+      linear-gradient(180deg, #fff8ec 0%, #fdeedf 100%);
   }
 
-  /* paper texture overlay */
+  /* paper + rangoli dot texture overlay */
   .texture::before {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.5;
-    background-image: radial-gradient(rgba(201, 162, 39, 0.10) 1px, transparent 1px);
-    background-size: 22px 22px;
+    opacity: 0.6;
+    background-image:
+      radial-gradient(rgba(193, 18, 31, 0.08) 1.4px, transparent 1.6px),
+      radial-gradient(rgba(201, 162, 39, 0.10) 1px, transparent 1.2px);
+    background-size: 30px 30px, 30px 30px;
+    background-position: 0 0, 15px 15px;
   }
 
   /* ---- Gold / rangoli divider ---- */
@@ -127,12 +135,58 @@ body {
     background: #fff7e6;
   }
 
-  /* ---- Cards ---- */
+  /* ---- Cards (warm, festive) ---- */
   .card {
-    background: #ffffff;
-    border: 1px solid rgba(245, 183, 0, 0.45);
+    position: relative;
+    background: linear-gradient(165deg, #fffdf5 0%, #fff4d4 100%);
+    border: 1px solid rgba(238, 123, 12, 0.35);
     border-radius: 18px;
-    box-shadow: 0 14px 38px rgba(238, 123, 12, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 0 16px 40px rgba(193, 18, 31, 0.08), 0 6px 18px rgba(238, 123, 12, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+  /* colorful top accent bar */
+  .card-accent::after {
+    content: '';
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    top: 0;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #C1121F, #EE7B0C, #F5B700, #1E7A52, #0E7C9B);
+    opacity: 0.85;
+  }
+
+  /* ---- Marigold garland divider ---- */
+  .garland {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .garland i {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffd860, #ee7b0c 70%);
+    box-shadow: 0 0 8px rgba(238, 123, 12, 0.5);
+  }
+  .garland i:nth-child(3n) {
+    background: radial-gradient(circle at 35% 30%, #ffb0c8, #e5639b 70%);
+  }
+  .garland i:nth-child(3n + 1) {
+    background: radial-gradient(circle at 35% 30%, #ffe08a, #f5b700 70%);
+  }
+
+  /* soft cultural glow blob behind photos */
+  .glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(46px);
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   /* ---- Buttons ---- */

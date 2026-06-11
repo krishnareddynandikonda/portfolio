@@ -1,17 +1,17 @@
 import { useMemo } from 'react'
 import { Sunflower } from './shared.jsx'
 
-// Soft, slow-floating sunflowers used as elegant background particles.
-// `count` kept low so it stays premium, not busy.
-export default function FloatingSunflowers({ count = 9 }) {
+// Soft, slow-floating sunflowers used as a festive background layer across
+// the whole site. Fixed + pointer-events-none so it never blocks content.
+export default function FloatingSunflowers({ count = 18 }) {
   const flowers = useMemo(
     () =>
       Array.from({ length: count }).map(() => ({
         left: Math.random() * 100,
-        size: 16 + Math.random() * 22,
-        duration: 24 + Math.random() * 20,
-        delay: Math.random() * 22,
-        opacity: 0.12 + Math.random() * 0.22,
+        size: 16 + Math.random() * 30,
+        duration: 20 + Math.random() * 22,
+        delay: Math.random() * 26,
+        opacity: 0.16 + Math.random() * 0.28,
       })),
     [count],
   )
@@ -21,7 +21,7 @@ export default function FloatingSunflowers({ count = 9 }) {
       {flowers.map((f, i) => (
         <span
           key={i}
-          className="absolute bottom-[-60px]"
+          className="absolute bottom-[-70px]"
           style={{
             left: `${f.left}%`,
             animation: `floatUp ${f.duration}s linear ${f.delay}s infinite`,

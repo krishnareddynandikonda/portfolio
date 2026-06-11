@@ -13,6 +13,13 @@ export default function LifestyleSection({ data }) {
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {data.tiles.map((tile, i) => {
             const Icon = Icons[tile.icon] || Icons.Sparkles
+            const iconBg = [
+              'from-sunshine to-saffron',
+              'from-peacock to-emerald',
+              'from-lotus to-kumkum',
+              'from-turmeric to-saffron',
+              'from-emerald to-peacock',
+            ][i % 5]
             return (
               <motion.div
                 key={tile.label}
@@ -21,9 +28,9 @@ export default function LifestyleSection({ data }) {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
                 whileHover={{ y: -6 }}
-                className="card group flex flex-col items-center gap-3 px-4 py-7 text-center"
+                className="card card-accent group flex flex-col items-center gap-3 px-4 py-7 text-center"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-sunshine to-saffron text-white shadow-sun transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                <span className={`flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br ${iconBg} text-white shadow-sun transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
                   <Icon className="h-6 w-6" strokeWidth={1.6} />
                 </span>
                 <span className="font-display text-base font-medium text-ink">{tile.label}</span>

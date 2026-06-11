@@ -12,7 +12,7 @@ export default function HoroscopeSection({ data }) {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="card mt-12 overflow-hidden">
+          <div className="card card-accent mt-12 overflow-hidden">
             <div className="flex items-center justify-center gap-3 border-b border-saffron/25 bg-gradient-to-r from-sunshine/30 to-saffron/20 py-5">
               <Sun className="h-5 w-5 text-saffron" />
               <span className="eyebrow text-xs text-saffron">Traditional Particulars</span>

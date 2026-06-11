@@ -18,10 +18,15 @@ export default function CareerSection({ data }) {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {data.cards.map((c, i) => {
             const Icon = Icons[c.icon] || Icons.Briefcase
+            const iconBg = [
+              'from-peacock to-emerald',
+              'from-sunshine to-saffron',
+              'from-lotus to-kumkum',
+            ][i % 3]
             return (
               <Reveal key={c.label} delay={i * 0.05}>
-                <div className="card flex items-start gap-4 px-6 py-6 transition-transform duration-300 hover:-translate-y-1">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-sunshine to-saffron text-white shadow-sun">
+                <div className="card card-accent flex items-start gap-4 px-6 py-6 transition-transform duration-300 hover:-translate-y-1">
+                  <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${iconBg} text-white shadow-sun`}>
                     <Icon className="h-5 w-5" strokeWidth={1.7} />
                   </span>
                   <div>

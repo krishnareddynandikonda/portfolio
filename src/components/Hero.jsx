@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Download } from 'lucide-react'
-import { Photo, Mandala, SunDivider, RangoliCorner } from './shared.jsx'
+import { Photo, Mandala, SunDivider, RangoliCorner, Sunflower } from './shared.jsx'
 
 export default function Hero({ data, onView, onDownload }) {
   return (
@@ -69,11 +69,36 @@ export default function Hero({ data, onView, onDownload }) {
             {data.teLine}
           </motion.p>
 
+          {data.quickFacts && (
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.92 }}
+              className="mt-6 flex flex-wrap justify-center gap-2.5 md:justify-start"
+            >
+              {data.quickFacts.map((f, i) => (
+                <span
+                  key={f}
+                  className={`rounded-full border px-4 py-1.5 text-sm font-medium shadow-sm ${
+                    [
+                      'border-saffron/50 bg-saffron/10 text-saffron',
+                      'border-peacock/50 bg-peacock/10 text-peacock',
+                      'border-kumkum/50 bg-kumkum/10 text-kumkum',
+                      'border-emerald/50 bg-emerald/10 text-emerald',
+                    ][i % 4]
+                  }`}
+                >
+                  {f}
+                </span>
+              ))}
+            </motion.div>
+          )}
+
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1 }}
-            className="mt-9 flex flex-wrap items-center justify-center gap-4 md:justify-start"
+            className="mt-8 flex flex-wrap items-center justify-center gap-4 md:justify-start"
           >
             <button onClick={onView} className="btn-sun px-8 py-3 text-sm">
               {data.ctaPrimary}
@@ -89,9 +114,13 @@ export default function Hero({ data, onView, onDownload }) {
           initial={{ opacity: 0, scale: 0.92, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="order-1 mx-auto w-full max-w-sm md:order-2"
+          className="relative order-1 mx-auto w-full max-w-sm md:order-2"
         >
-          <div className="arch-frame">
+          <span className="glow-blob -left-8 -top-8 h-48 w-48 bg-saffron" />
+          <span className="glow-blob -bottom-8 -right-8 h-48 w-48 bg-lotus" />
+          <Sunflower size={56} className="absolute -right-4 -top-6 z-20 animate-sway" />
+          <Sunflower size={40} className="absolute -bottom-3 -left-5 z-20 animate-sway" />
+          <div className="arch-frame relative z-10">
             <div className="inner aspect-[3/4]">
               <Photo src={data.photo} alt={`${data.name} portrait`} label="Hero portrait" />
             </div>

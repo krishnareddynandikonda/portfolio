@@ -66,12 +66,26 @@ export function SunDivider({ className = '' }) {
   )
 }
 
+// ---- Marigold garland divider ----
+export function Garland({ count = 11, className = '' }) {
+  return (
+    <div className={`garland ${className}`} aria-hidden="true">
+      {Array.from({ length: count }).map((_, i) => (
+        <i key={i} />
+      ))}
+    </div>
+  )
+}
+
 // ---- Section heading: Telugu + English ----
 export function SectionHeading({ teHeading, heading, center = true }) {
   return (
     <div className={center ? 'text-center' : ''}>
+      <div className={`mb-4 ${center ? 'flex justify-center' : ''}`}>
+        <Garland count={9} />
+      </div>
       {teHeading && (
-        <p className="te text-2xl font-semibold text-saffron md:text-3xl">{teHeading}</p>
+        <p className="te text-3xl font-bold text-kumkum md:text-4xl">{teHeading}</p>
       )}
       <h2 className="mt-1 font-heading text-4xl font-semibold text-maroon md:text-5xl">
         {heading}
