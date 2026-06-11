@@ -3,12 +3,13 @@ import { Reveal, SectionHeading, Mandala } from './shared.jsx'
 
 export default function HoroscopeSection({ data }) {
   return (
-    <section id="horoscope" className="petal-bg texture relative overflow-hidden py-28">
-      <Mandala className="-right-40 bottom-0" reverse size={500} color="#EE7B0C" />
+    <section id="horoscope" className="night-bg stars relative overflow-hidden py-28">
+      <Mandala className="-right-40 bottom-0" reverse size={500} color="#E6C766" />
+      <Mandala className="left-1/2 top-10 -translate-x-1/2" size={360} color="#E6C766" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark />
         </Reveal>
 
         <Reveal delay={0.15}>

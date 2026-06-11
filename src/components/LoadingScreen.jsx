@@ -4,7 +4,7 @@ import { Sunflower } from './shared.jsx'
 export default function LoadingScreen({ data }) {
   return (
     <motion.div
-      className="sun-bg fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
+      className="royal-bg fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.9, ease: 'easeInOut' }}
@@ -38,7 +38,7 @@ export default function LoadingScreen({ data }) {
         initial={{ y: 16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="te mt-7 text-4xl font-bold text-saffron md:text-5xl"
+        className="te mt-7 text-4xl font-bold gold-text md:text-5xl"
       >
         {data.blessing}
       </motion.h1>
@@ -47,7 +47,7 @@ export default function LoadingScreen({ data }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.55 }}
-        className="mt-3 font-heading text-2xl font-semibold text-maroon md:text-3xl"
+        className="mt-3 font-heading text-2xl font-semibold text-cream md:text-3xl"
       >
         {data.name}
       </motion.p>

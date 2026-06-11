@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Photo, Mandala, Sunflower, Garland, RangoliCorner } from './shared.jsx'
+import { Toranam } from './CulturalArtwork.jsx'
 
 const TINTS = ['cream-bg', 'petal-bg', 'sun-bg']
 const GLOWS = ['#F5B700', '#E5639B', '#0E7C9B', '#1E7A52', '#EE7B0C']
@@ -82,6 +83,7 @@ export default function PhotoStory({ items }) {
   return (
     <section id="story" className="relative">
       <div className="sun-bg texture relative overflow-hidden py-16 text-center">
+        <Toranam className="absolute inset-x-0 top-0 h-12 opacity-90" />
         <Mandala className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" size={520} />
         <div className="relative z-10">
           <div className="mb-4 flex justify-center">

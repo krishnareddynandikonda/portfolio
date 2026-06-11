@@ -1,37 +1,63 @@
 import { useMemo } from 'react'
 import { Sunflower, Marigold } from './shared.jsx'
 
-// A small lotus-pink petal
-function Petal({ size = 16 }) {
+// Elegant lotus-pink petal
+function Petal({ size = 14 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden="true">
-      <path d="M20 2 C30 12 30 28 20 38 C10 28 10 12 20 2 Z" fill="#F2A0C0" stroke="#E5639B" strokeWidth="1.5" />
+    <svg width={size} height={size * 1.3} viewBox="0 0 40 52" aria-hidden="true">
+      <defs>
+        <linearGradient id="pet" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FBC7DC" />
+          <stop offset="55%" stopColor="#EE83AE" />
+          <stop offset="100%" stopColor="#D7457E" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M20 1 C33 14 35 34 20 51 C5 34 7 14 20 1 Z"
+        fill="url(#pet)"
+        stroke="#C73C72"
+        strokeWidth="0.8"
+      />
+      <path d="M20 6 C24 20 24 36 20 48" fill="none" stroke="#C73C72" strokeWidth="0.7" opacity="0.5" />
     </svg>
   )
 }
 
-function renderFlower(kind, size) {
-  if (kind === 0) return <Sunflower size={size} />
-  if (kind === 1) return <Marigold size={size} color="#EE7B0C" />
-  if (kind === 2) return <Marigold size={size} color="#F5B700" />
-  return <Petal size={size * 0.7} />
+// Weighted flower picker: 75% pink petals, 15% tiny marigold, 10% small sunflower
+function pickKind(r) {
+  if (r < 0.75) return 'petal'
+  if (r < 0.9) return 'marigold'
+  return 'sunflower'
 }
 
-// Festive flower shower across the whole site: sunflowers, marigolds, petals
-// falling slowly from top to bottom, drifting and rotating. Fixed layer,
-// pointer-events-none so it never blocks content.
-export default function FloatingFlowerShower({ count = 28 }) {
+function renderFlower(kind, size) {
+  if (kind === 'sunflower') return <Sunflower size={size} />
+  if (kind === 'marigold') return <Marigold size={size} color={Math.random() > 0.5 ? '#EE7B0C' : '#F5B700'} />
+  return <Petal size={size} />
+}
+
+// Premium wedding flower shower: small pink petals drifting across the whole
+// site with depth (blur/opacity variation). Fixed, pointer-events-none.
+export default function FloatingFlowerShower({ count = 42 }) {
   const flowers = useMemo(
     () =>
-      Array.from({ length: count }).map((_, i) => ({
-        left: Math.random() * 100,
-        size: 14 + Math.random() * 26,
-        duration: 14 + Math.random() * 16,
-        delay: -Math.random() * 30, // negative so the shower is mid-fall on load
-        opacity: 0.2 + Math.random() * 0.35,
-        kind: i % 4,
-        alt: i % 2 === 0,
-      })),
+      Array.from({ length: count }).map((_, i) => {
+        const kind = pickKind(Math.random())
+        // keep petals small & elegant; sunflowers/marigolds tiny accents
+        const base =
+          kind === 'sunflower' ? 12 + Math.random() * 8 : kind === 'marigold' ? 9 + Math.random() * 7 : 8 + Math.random() * 12
+        const depth = Math.random() // 0 = far (small/blurred), 1 = near
+        return {
+          left: Math.random() * 100,
+          size: base * (0.7 + depth * 0.6),
+          duration: 16 + Math.random() * 18,
+          delay: -Math.random() * 34,
+          opacity: 0.18 + depth * 0.4,
+          blur: (1 - depth) * 1.4,
+          kind,
+          alt: i % 2 === 0,
+        }
+      }),
     [count],
   )
 
@@ -45,6 +71,7 @@ export default function FloatingFlowerShower({ count = 28 }) {
             left: `${f.left}%`,
             animation: `${f.alt ? 'fallAlt' : 'fall'} ${f.duration}s linear ${f.delay}s infinite`,
             opacity: f.opacity,
+            filter: f.blur > 0.2 ? `blur(${f.blur.toFixed(1)}px)` : undefined,
           }}
         >
           {renderFlower(f.kind, f.size)}
