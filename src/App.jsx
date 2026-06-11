@@ -38,7 +38,7 @@ export default function App() {
       </AnimatePresence>
 
       <TopNav />
-      <FloatingFlowerShower count={6} />
+      <FloatingFlowerShower count={16} />
 
       <main className="relative z-10">
         <Hero data={profileData.hero} onView={scrollToProfile} onDownload={downloadBiodata} />

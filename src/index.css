@@ -19,8 +19,17 @@ body {
   background: #f6f1e7;
   color: #1e1a17;
   font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+/* tighter tracking on large display headings */
+h1,
+h2,
+h3,
+.font-heading {
+  letter-spacing: -0.015em;
 }
 
 @layer components {
@@ -272,8 +281,8 @@ body {
 }
 
 .eyebrow {
-  font-family: 'Marcellus', serif;
-  letter-spacing: 0.3em;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
