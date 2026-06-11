@@ -13,7 +13,7 @@ export default function Contact({ data, onDownload }) {
 
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark index="10 — Contact" />
         </Reveal>
 
         <Reveal delay={0.15}>

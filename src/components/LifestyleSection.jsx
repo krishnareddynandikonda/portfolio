@@ -7,7 +7,7 @@ export default function LifestyleSection({ data }) {
     <section id="lifestyle" className="cream-bg texture relative py-28">
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} index="07 — Lifestyle" />
         </Reveal>
 
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">

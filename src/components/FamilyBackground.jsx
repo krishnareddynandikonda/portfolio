@@ -1,53 +1,52 @@
-import * as Icons from 'lucide-react'
-import { Reveal, SectionHeading, Mandala } from './shared.jsx'
+import { motion } from 'framer-motion'
+
+const EASE = [0.22, 1, 0.36, 1]
 
 export default function FamilyBackground({ data }) {
   return (
-    <section id="family" className="cream-bg relative overflow-hidden py-28">
-      <Mandala className="-left-44 top-1/4 opacity-[0.06]" size={460} color="#1E7A52" />
-
-      <div className="relative z-10 mx-auto max-w-5xl px-6">
-        <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
-        </Reveal>
-
-        <Reveal delay={0.12}>
-          <p className="mx-auto mt-10 max-w-3xl text-center font-display text-2xl leading-relaxed text-ink/85">
-            {data.body}
-          </p>
-        </Reveal>
-
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {data.members.map((m, i) => {
-            const Icon = Icons[m.icon] || Icons.UserRound
-            const iconBg = ['from-peacock to-emerald', 'from-lotus to-kumkum', 'from-sunshine to-saffron'][i % 3]
-            return (
-              <Reveal key={m.role} delay={i * 0.08}>
-                <div className="card card-accent flex h-full flex-col items-center px-6 py-8 text-center transition-transform duration-300 hover:-translate-y-1">
-                  <span className={`flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br ${iconBg} text-white shadow-sun`}>
-                    <Icon className="h-6 w-6" strokeWidth={1.6} />
-                  </span>
-                  <p className="eyebrow mt-4 text-[10px] text-saffron">{m.role}</p>
-                  <p className="mt-1 font-heading text-xl font-semibold text-maroon">{m.name}</p>
-                  <p className="mt-1 text-ink/70">{m.detail}</p>
-                </div>
-              </Reveal>
-            )
-          })}
+    <section id="family" className="paper-bg relative py-28 md:py-40">
+      <div className="relative z-10 mx-auto max-w-[1000px] px-6 md:px-10">
+        <div className="text-center">
+          <span className="text-[0.72rem] uppercase tracking-[0.22em] text-brass">04 — Family</span>
+          <p className="te mt-3 text-2xl font-semibold text-wine md:text-3xl">{data.teHeading}</p>
+          <h2 className="mt-1 font-heading text-3xl font-semibold text-ink md:text-4xl">{data.heading}</h2>
+          <span className="mx-auto mt-5 block h-px w-16 bg-brass/50" />
         </div>
 
-        <Reveal delay={0.2}>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {data.values.map((v) => (
-              <span
-                key={v}
-                className="rounded-full border border-saffron/40 bg-white/70 px-4 py-2 text-sm text-saffron shadow-sm"
-              >
-                {v}
-              </span>
-            ))}
-          </div>
-        </Reveal>
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: EASE }}
+          className="mx-auto mt-10 max-w-2xl text-center font-heading text-xl italic leading-relaxed text-ink/70 md:text-2xl"
+        >
+          {data.body}
+        </motion.p>
+
+        <div className="mt-14 border-t border-brass/25">
+          {data.members.map((m, i) => (
+            <motion.div
+              key={m.role}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
+              className="flex flex-col gap-1 border-b border-brass/25 py-7 md:flex-row md:items-baseline md:justify-between md:gap-8"
+            >
+              <span className="text-[0.72rem] uppercase tracking-[0.22em] text-brass">{m.role}</span>
+              <span className="font-heading text-2xl text-wine md:flex-1 md:px-8">{m.name}</span>
+              <span className="text-sm text-ink/60 md:text-right">{m.detail}</span>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
+          {data.values.map((v) => (
+            <span key={v} className="text-[0.72rem] uppercase tracking-[0.22em] text-brass/70">
+              {v}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   )

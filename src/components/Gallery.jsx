@@ -11,7 +11,7 @@ export default function Gallery({ data }) {
     <section id="gallery" className="cream-bg texture relative py-28">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} index="09 — Gallery" />
         </Reveal>
 
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">

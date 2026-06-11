@@ -1,39 +1,35 @@
-import * as Icons from 'lucide-react'
-import { Reveal, SectionHeading, Mandala } from './shared.jsx'
+import { motion } from 'framer-motion'
+
+const EASE = [0.22, 1, 0.36, 1]
 
 export default function ProfileDetails({ data }) {
   return (
-    <section id="profile" className="royal-bg relative py-28">
-      <Mandala className="left-1/2 top-10 -translate-x-1/2" size={420} color="#E6C766" />
-      <div className="relative z-10 mx-auto max-w-5xl px-6">
-        <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark />
-        </Reveal>
-
-        <div className="mt-14 grid gap-4 sm:grid-cols-2">
-          {data.rows.map((row, i) => {
-            const Icon = Icons[row.icon] || Icons.Dot
-            const iconBg = [
-              'from-sunshine to-saffron',
-              'from-peacock to-emerald',
-              'from-lotus to-kumkum',
-              'from-turmeric to-saffron',
-            ][i % 4]
-            return (
-              <Reveal key={row.label} delay={i * 0.04}>
-                <div className="card card-accent flex items-center gap-4 px-6 py-5 transition-transform duration-300 hover:-translate-y-1">
-                  <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${iconBg} text-white shadow-sun`}>
-                    <Icon className="h-5 w-5" strokeWidth={1.7} />
-                  </span>
-                  <div>
-                    <p className="eyebrow text-[10px] text-saffron">{row.label}</p>
-                    <p className="font-display text-xl font-medium text-ink">{row.value}</p>
-                  </div>
-                </div>
-              </Reveal>
-            )
-          })}
+    <section id="profile" className="wine-bg relative py-28 md:py-40">
+      <div className="relative z-10 mx-auto max-w-[1100px] px-6 md:px-10">
+        <div className="text-center">
+          <span className="text-[0.72rem] uppercase tracking-[0.22em] text-brass-soft">03 — Profile</span>
+          <p className="te mt-3 text-2xl font-semibold text-brass-soft md:text-3xl">{data.teHeading}</p>
+          <h2 className="mt-1 font-heading text-3xl font-semibold text-paper md:text-4xl">{data.heading}</h2>
+          <span className="mx-auto mt-5 block h-px w-16 bg-brass/50" />
         </div>
+
+        <dl className="mt-14 grid gap-x-16 md:grid-cols-2">
+          {data.rows.map((row, i) => (
+            <motion.div
+              key={row.label}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, delay: (i % 2) * 0.06, ease: EASE }}
+              className="flex items-baseline justify-between gap-6 border-b border-brass/20 py-5"
+            >
+              <dt className="shrink-0 text-[0.72rem] uppercase tracking-[0.22em] text-brass-soft/80">
+                {row.label}
+              </dt>
+              <dd className="text-right font-heading text-lg text-paper md:text-xl">{row.value}</dd>
+            </motion.div>
+          ))}
+        </dl>
       </div>
     </section>
   )

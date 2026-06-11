@@ -123,11 +123,16 @@ export function Garland({ count = 11, className = '' }) {
 }
 
 // ---- Section heading: Telugu + English ----
-export function SectionHeading({ teHeading, heading, center = true, dark = false }) {
+export function SectionHeading({ teHeading, heading, center = true, dark = false, index }) {
   return (
     <div className={center ? 'text-center' : ''}>
+      {index && (
+        <p className={`mb-3 text-[0.72rem] uppercase tracking-[0.22em] ${dark ? 'text-brass-soft' : 'text-brass'}`}>
+          {index}
+        </p>
+      )}
       {teHeading && (
-        <p className={`te text-2xl font-semibold md:text-3xl ${dark ? 'text-gold-soft' : 'text-maroon/80'}`}>
+        <p className={`te text-2xl font-semibold md:text-3xl ${dark ? 'text-brass-soft' : 'text-wine'}`}>
           {teHeading}
         </p>
       )}

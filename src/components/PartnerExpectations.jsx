@@ -11,7 +11,7 @@ export default function PartnerExpectations({ data }) {
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark index="08 — Partner" />
         </Reveal>
 
         <Reveal delay={0.15}>

@@ -4,6 +4,7 @@ import profileData from './data/profileData.js'
 
 import LoadingScreen from './components/LoadingScreen.jsx'
 import FloatingFlowerShower from './components/FloatingFlowerShower.jsx'
+import TopNav from './components/TopNav.jsx'
 import Hero from './components/Hero.jsx'
 import Intro from './components/Intro.jsx'
 import PhotoStory from './components/PhotoStory.jsx'
@@ -36,7 +37,8 @@ export default function App() {
         {loading && <LoadingScreen data={profileData.loading} />}
       </AnimatePresence>
 
-      <FloatingFlowerShower count={12} />
+      <TopNav />
+      <FloatingFlowerShower count={6} />
 
       <main className="relative z-10">
         <Hero data={profileData.hero} onView={scrollToProfile} onDownload={downloadBiodata} />

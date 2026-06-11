@@ -1,51 +1,42 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Photo, Mandala, SunDivider } from './shared.jsx'
+import { Photo } from './shared.jsx'
 
 const EASE = [0.22, 1, 0.36, 1]
-
-// One quiet color mood per chapter — calm, alternating, never neon
-const STORY_MOODS = [
-  'linear-gradient(180deg,#fbf3e6,#f6ead4)', // ivory warm
-  'linear-gradient(180deg,#eef5f6,#e2eef1)', // soft peacock mist
-  'linear-gradient(180deg,#fbf0f4,#f6e2ea)', // soft lotus
-  'linear-gradient(180deg,#eef5ef,#e0eee4)', // soft emerald
-  'linear-gradient(180deg,#fbf2dd,#f6e8c4)', // soft turmeric
-  'linear-gradient(180deg,#faf3e8,#f1e6d2)', // sandalwood
-  'linear-gradient(180deg,#f1f4f6,#e7eef1)', // pale blue
-  'linear-gradient(180deg,#42101c,#330b15)', // deep maroon (dark)
-  'linear-gradient(180deg,#2c1846,#241046)', // royal purple (dark)
-  'linear-gradient(180deg,#fbf3df,#f6e9c6)', // gold blessing
-]
-const DARK_STORIES = new Set([7, 8])
 
 function StoryRow({ item, index }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const y = useTransform(scrollYProgress, [0, 1], [40, -40])
+  const y = useTransform(scrollYProgress, [0, 1], [36, -36])
 
   const reversed = index % 2 === 1
+  const dark = reversed // alternate paper / wine
   const num = String(index + 1).padStart(2, '0')
-  const dark = DARK_STORIES.has(index)
 
   return (
-    <div ref={ref} className="relative overflow-hidden" style={{ background: STORY_MOODS[index % STORY_MOODS.length] }}>
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:gap-16 md:py-28">
-        {/* Photo — clean arch */}
+    <div ref={ref} className={`relative overflow-hidden ${dark ? 'wine-bg' : 'paper-bg'}`}>
+      {/* oversized index number watermark */}
+      <span
+        className={`pointer-events-none absolute select-none font-heading font-semibold leading-none ${
+          dark ? 'text-brass/15' : 'text-wine/[0.06]'
+        } ${reversed ? 'right-4 md:right-12' : 'left-4 md:left-12'} top-10`}
+        style={{ fontSize: 'clamp(8rem, 22vw, 18rem)' }}
+        aria-hidden="true"
+      >
+        {num}
+      </span>
+
+      <div className="relative z-10 mx-auto grid max-w-[1200px] items-center gap-12 px-6 py-28 md:grid-cols-2 md:gap-20 md:px-10 md:py-40">
+        {/* Photo */}
         <motion.div
           style={{ y }}
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.9, ease: EASE }}
-          className={`relative mx-auto w-full max-w-xs md:max-w-sm ${reversed ? 'md:order-2' : 'md:order-1'}`}
+          className={`mx-auto w-full max-w-xs md:max-w-sm ${reversed ? 'md:order-2' : 'md:order-1'}`}
         >
-          <Mandala
-            className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]"
-            size={420}
-            color={dark ? '#E6C766' : '#6a0f1a'}
-          />
-          <div className="arch-frame relative z-10">
+          <div className="arch-frame">
             <div className="inner aspect-[3/4]">
               <Photo src={item.photo} alt={item.title} label={`Story ${num}`} />
             </div>
@@ -54,25 +45,23 @@ function StoryRow({ item, index }) {
 
         {/* Text */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, delay: 0.12, ease: EASE }}
+          transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
           className={`text-center md:text-left ${reversed ? 'md:order-1' : 'md:order-2'}`}
         >
-          <span className={`eyebrow text-xs ${dark ? 'text-gold-soft/80' : 'text-maroon/50'}`}>
-            Chapter {num}
+          <span className={`text-[0.72rem] uppercase tracking-[0.22em] ${dark ? 'text-brass-soft' : 'text-brass'}`}>
+            {num} — Chapter
           </span>
-          <h3 className={`te mt-3 text-2xl font-semibold md:text-3xl ${dark ? 'text-gold-soft' : 'text-maroon'}`}>
+          <h3 className={`te mt-4 text-3xl font-semibold md:text-4xl ${dark ? 'text-paper' : 'text-wine'}`}>
             {item.teTitle}
           </h3>
-          <p className={`mt-1 font-heading text-xl font-medium md:text-2xl ${dark ? 'text-ivory/85' : 'text-maroon/80'}`}>
+          <p className={`mt-2 font-heading text-xl italic md:text-2xl ${dark ? 'text-brass-soft' : 'text-ink/70'}`}>
             {item.title}
           </p>
-          <div className="mt-5 md:flex md:justify-start">
-            <SunDivider />
-          </div>
-          <p className={`mt-6 text-base leading-relaxed ${dark ? 'text-ivory/70' : 'text-ink/70'}`}>
+          <span className={`mt-6 block h-px w-16 ${dark ? 'bg-brass/50' : 'bg-wine/25'} ${reversed ? 'mx-auto md:mx-0' : 'mx-auto md:mx-0'}`} />
+          <p className={`mt-6 max-w-md text-base leading-relaxed ${dark ? 'text-paper/75' : 'text-ink/70'} ${'mx-auto md:mx-0'}`}>
             {item.text}
           </p>
         </motion.div>
@@ -84,16 +73,11 @@ function StoryRow({ item, index }) {
 export default function PhotoStory({ items }) {
   return (
     <section id="story" className="relative">
-      <div className="cream-bg relative overflow-hidden py-20 text-center">
-        <div className="relative z-10">
-          <p className="te text-2xl font-semibold text-maroon/80 md:text-3xl">కథ • పది చిత్రాలు</p>
-          <h2 className="mt-1 font-heading text-3xl font-semibold text-maroon md:text-4xl">
-            A Story in Ten Frames
-          </h2>
-          <div className="mt-5 flex justify-center">
-            <SunDivider />
-          </div>
-        </div>
+      <div className="paper-bg relative py-24 text-center md:py-28">
+        <span className="text-[0.72rem] uppercase tracking-[0.22em] text-brass">02 — The Story</span>
+        <p className="te mt-3 text-2xl font-semibold text-wine md:text-3xl">కథ • పది చిత్రాలు</p>
+        <h2 className="mt-1 font-heading text-3xl font-semibold text-ink md:text-4xl">A Story in Ten Frames</h2>
+        <span className="mx-auto mt-5 block h-px w-16 bg-brass/50" />
       </div>
 
       {items.map((item, i) => (

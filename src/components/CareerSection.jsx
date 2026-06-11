@@ -6,7 +6,7 @@ export default function CareerSection({ data }) {
     <section id="career" className="peacock-bg stars relative py-28">
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark index="06 — Career" />
         </Reveal>
 
         <Reveal delay={0.12}>

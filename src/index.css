@@ -10,10 +10,14 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
 body {
   margin: 0;
-  background: #faf4ea;
-  color: #2c2018;
+  background: #f6f1e7;
+  color: #1e1a17;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -56,74 +60,37 @@ body {
     color: transparent;
   }
   .gold-text {
-    background: linear-gradient(180deg, #d8b85f 0%, #c8a24a 55%, #a9842f 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: #b08d4c;
+  }
+  .brass-text {
+    color: #b08d4c;
   }
 
-  /* ---- Section backgrounds (rich, multi-color) ---- */
-  .cream-bg {
-    background:
-      radial-gradient(720px 440px at 8% -5%, rgba(245, 183, 0, 0.28), transparent 60%),
-      radial-gradient(680px 460px at 100% 8%, rgba(14, 124, 155, 0.14), transparent 60%),
-      radial-gradient(760px 520px at 92% 108%, rgba(229, 99, 155, 0.18), transparent 60%),
-      radial-gradient(620px 460px at 0% 105%, rgba(30, 122, 82, 0.12), transparent 60%),
-      linear-gradient(180deg, #fff7e0 0%, #fff0c9 100%);
+  /* ---- Calm editorial section backgrounds ---- */
+  .cream-bg,
+  .sun-bg,
+  .petal-bg,
+  .paper-bg {
+    background: #f6f1e7;
+    color: #1e1a17;
   }
-  .sun-bg {
+  /* dark wine sections */
+  .royal-bg,
+  .peacock-bg,
+  .rose-bg,
+  .wine-bg {
     background:
-      radial-gradient(900px 560px at 50% -12%, rgba(255, 201, 60, 0.85), transparent 62%),
-      radial-gradient(640px 480px at 8% 100%, rgba(193, 18, 31, 0.14), transparent 58%),
-      radial-gradient(680px 480px at 96% 96%, rgba(238, 123, 12, 0.30), transparent 60%),
-      linear-gradient(180deg, #ffeaa6 0%, #ffd87a 100%);
+      radial-gradient(900px 640px at 50% -15%, rgba(176, 141, 76, 0.16), transparent 60%),
+      linear-gradient(180deg, #4e141b 0%, #3d0f15 100%);
+    color: #f6f1e7;
   }
-  .petal-bg {
+  /* deepest wine — horoscope */
+  .night-bg,
+  .wine-deep-bg {
     background:
-      radial-gradient(760px 480px at 0% 0%, rgba(229, 99, 155, 0.22), transparent 58%),
-      radial-gradient(760px 480px at 100% 100%, rgba(14, 124, 155, 0.18), transparent 58%),
-      radial-gradient(640px 440px at 100% 0%, rgba(245, 183, 0, 0.22), transparent 58%),
-      radial-gradient(640px 440px at 0% 100%, rgba(30, 122, 82, 0.14), transparent 58%),
-      linear-gradient(180deg, #fff8ec 0%, #fdeedf 100%);
-  }
-
-  /* royal deep-maroon hero backdrop */
-  .royal-bg {
-    background:
-      radial-gradient(900px 620px at 50% -12%, rgba(201, 162, 39, 0.34), transparent 60%),
-      radial-gradient(680px 520px at 6% 102%, rgba(14, 124, 155, 0.30), transparent 60%),
-      radial-gradient(680px 520px at 96% 92%, rgba(229, 99, 155, 0.24), transparent 60%),
-      linear-gradient(180deg, #61101d 0%, #4a0712 55%, #38050f 100%);
-    color: #fff6e6;
-  }
-  /* peacock-blue career backdrop */
-  .peacock-bg {
-    background:
-      radial-gradient(820px 560px at 50% -10%, rgba(201, 162, 39, 0.28), transparent 62%),
-      radial-gradient(640px 480px at 6% 100%, rgba(30, 122, 82, 0.34), transparent 60%),
-      radial-gradient(640px 480px at 96% 96%, rgba(14, 124, 155, 0.30), transparent 60%),
-      linear-gradient(180deg, #0c4f63 0%, #0a3d4f 100%);
-    color: #eaf6f8;
-  }
-  /* lotus-pink + maroon "vow card" backdrop */
-  .rose-bg {
-    background:
-      radial-gradient(820px 560px at 50% -10%, rgba(201, 162, 39, 0.26), transparent 62%),
-      radial-gradient(680px 520px at 8% 100%, rgba(122, 18, 32, 0.30), transparent 60%),
-      radial-gradient(680px 520px at 96% 92%, rgba(229, 99, 155, 0.40), transparent 60%),
-      linear-gradient(180deg, #7a1c3a 0%, #5c1330 100%);
-    color: #ffeef5;
-  }
-
-  /* night-sky horoscope backdrop */
-  .night-bg {
-    background:
-      radial-gradient(760px 480px at 50% 0%, rgba(201, 162, 39, 0.26), transparent 62%),
-      radial-gradient(620px 520px at 100% 100%, rgba(14, 124, 155, 0.34), transparent 60%),
-      radial-gradient(560px 460px at 0% 90%, rgba(229, 99, 155, 0.16), transparent 60%),
-      linear-gradient(180deg, #0d1f47 0%, #0a1330 100%);
-    color: #f3e9c8;
+      radial-gradient(820px 560px at 50% 0%, rgba(176, 141, 76, 0.14), transparent 62%),
+      linear-gradient(180deg, #360d12 0%, #2a090d 100%);
+    color: #f6f1e7;
   }
   /* faint starfield for night-bg */
   .stars::after {
