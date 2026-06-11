@@ -250,3 +250,60 @@ body {
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }
+
+/* ============================================================
+   Animation keyframes — defined as plain CSS so they ALWAYS
+   ship in the build (Tailwind only emits keyframes that are
+   referenced by an animate-* utility; these are driven by
+   inline `animation:` styles for per-element random timing).
+   ============================================================ */
+@keyframes fall {
+  0% {
+    transform: translateY(-12vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(112vh) translateX(60px) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fallAlt {
+  0% {
+    transform: translateY(-12vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(112vh) translateX(-50px) rotate(-300deg);
+    opacity: 0;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  88% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-115vh) translateX(50px) rotate(220deg);
+    opacity: 0;
+  }
+}
