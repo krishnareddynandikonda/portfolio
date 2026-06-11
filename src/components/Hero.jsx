@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Download } from 'lucide-react'
 import { Photo, Mandala, RangoliCorner, Sunflower, Kalasam } from './shared.jsx'
-import { Toranam, TempleGopuram, PeacockFeather } from './CulturalArtwork.jsx'
+import { Toranam, TempleGopuram, PeacockFeather, MandapamFrame, GoldOrnamentDivider } from './CulturalArtwork.jsx'
 
 export default function Hero({ data, onView, onDownload }) {
   return (
@@ -43,16 +43,20 @@ export default function Hero({ data, onView, onDownload }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="te mt-2 text-4xl font-bold leading-tight gold-text md:text-5xl"
+            className="name-te gold-text mx-auto mt-2 md:mx-0"
           >
-            {data.nameTe}
+            {(data.nameTeLines || [data.nameTe]).map((line, i) => (
+              <span key={i} className="block">
+                {line}
+              </span>
+            ))}
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.45 }}
-            className="mt-3 font-heading text-3xl font-semibold text-cream md:text-4xl"
+            className="name-en mx-auto mt-3 text-cream md:mx-0"
           >
             {data.name}
           </motion.p>
@@ -63,7 +67,7 @@ export default function Hero({ data, onView, onDownload }) {
             transition={{ duration: 1, delay: 0.6 }}
             className="mt-5 flex justify-center md:justify-start"
           >
-            <Toranam className="h-9 w-56" />
+            <GoldOrnamentDivider width={240} />
           </motion.div>
 
           <motion.p
@@ -129,13 +133,14 @@ export default function Hero({ data, onView, onDownload }) {
           initial={{ opacity: 0, scale: 0.92, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="relative order-1 mx-auto w-full max-w-sm md:order-2"
+          className="relative order-1 mx-auto w-full max-w-sm px-7 pb-4 pt-12 md:order-2"
         >
           <Mandala className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-125" size={460} color="#E6C766" />
-          <span className="glow-blob -left-8 -top-8 h-48 w-48 bg-saffron" />
-          <span className="glow-blob -bottom-8 -right-8 h-48 w-48 bg-lotus" />
-          <Sunflower size={42} className="absolute -right-3 -top-5 z-20 animate-sway" />
-          <Kalasam size={44} className="absolute -bottom-4 -left-5 z-20 animate-sway" />
+          <span className="glow-blob -left-4 top-4 h-48 w-48 bg-saffron" />
+          <span className="glow-blob -bottom-4 -right-4 h-48 w-48 bg-lotus" />
+          <MandapamFrame />
+          <Kalasam size={40} className="absolute left-1/2 top-1 z-30 -translate-x-1/2 animate-sway" />
+          <Sunflower size={30} className="absolute right-2 top-8 z-30 animate-sway" />
           <div className="arch-frame relative z-10">
             <div className="inner aspect-[3/4]">
               <Photo src={data.photo} alt={`${data.name} portrait`} label="Hero portrait" />

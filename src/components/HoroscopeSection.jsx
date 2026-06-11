@@ -1,11 +1,14 @@
 import { Sun } from 'lucide-react'
 import { Reveal, SectionHeading, Mandala } from './shared.jsx'
+import { DiyaGlow } from './CulturalArtwork.jsx'
 
 export default function HoroscopeSection({ data }) {
   return (
     <section id="horoscope" className="night-bg stars relative overflow-hidden py-28">
       <Mandala className="-right-40 bottom-0" reverse size={500} color="#E6C766" />
       <Mandala className="left-1/2 top-10 -translate-x-1/2" size={360} color="#E6C766" />
+      <DiyaGlow className="absolute left-8 top-24 hidden md:block" size={46} />
+      <DiyaGlow className="absolute right-8 top-24 hidden md:block" size={46} />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         <Reveal>

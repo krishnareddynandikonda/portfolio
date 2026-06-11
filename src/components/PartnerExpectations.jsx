@@ -1,10 +1,13 @@
 import { HeartHandshake } from 'lucide-react'
 import { Reveal, SectionHeading, Mandala } from './shared.jsx'
+import { DiyaGlow } from './CulturalArtwork.jsx'
 
 export default function PartnerExpectations({ data }) {
   return (
     <section id="partner" className="rose-bg relative overflow-hidden py-28">
       <Mandala className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" size={560} color="#E6C766" />
+      <DiyaGlow className="absolute left-10 top-28 hidden md:block" size={46} />
+      <DiyaGlow className="absolute right-10 top-28 hidden md:block" size={46} />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <Reveal>

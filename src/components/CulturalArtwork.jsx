@@ -59,6 +59,79 @@ export function TempleGopuram({ className = '', color = 'rgba(0,0,0,0.18)' }) {
   )
 }
 
+// ---- Mandapam frame: ornamental wedding pillars + arch beam ----
+export function MandapamFrame({ className = '' }) {
+  return (
+    <svg
+      viewBox="0 0 320 420"
+      preserveAspectRatio="none"
+      className={`pointer-events-none absolute inset-0 h-full w-full ${className}`}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="mpg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#F6E3A0" />
+          <stop offset="50%" stopColor="#C9A227" />
+          <stop offset="100%" stopColor="#8A6A14" />
+        </linearGradient>
+      </defs>
+      <g fill="url(#mpg)">
+        {/* left + right pillars */}
+        <rect x="4" y="40" width="20" height="376" rx="4" />
+        <rect x="296" y="40" width="20" height="376" rx="4" />
+        {/* pillar capitals + bases */}
+        <rect x="-2" y="34" width="32" height="12" rx="3" />
+        <rect x="290" y="34" width="32" height="12" rx="3" />
+        <rect x="-2" y="404" width="32" height="14" rx="3" />
+        <rect x="290" y="404" width="32" height="14" rx="3" />
+        {/* top beam */}
+        <rect x="4" y="6" width="312" height="16" rx="4" />
+        {/* arch swag */}
+        <path d="M24 30 Q160 96 296 30 L296 44 Q160 110 24 44 Z" />
+        {/* finials */}
+        <circle cx="14" cy="2" r="7" />
+        <circle cx="306" cy="2" r="7" />
+        <circle cx="160" cy="0" r="8" />
+      </g>
+    </svg>
+  )
+}
+
+// ---- Diya glow (small lamp with flame) ----
+export function DiyaGlow({ className = '', size = 40 }) {
+  return (
+    <span className={`relative inline-block ${className}`} aria-hidden="true">
+      <span className="absolute left-1/2 top-0 h-6 w-6 -translate-x-1/2 -translate-y-2 rounded-full bg-amber-300/70 blur-md animate-glow" />
+      <svg width={size} height={size} viewBox="0 0 60 60" className="relative">
+        <path d="M30 14 C33 22 33 28 30 34 C27 28 27 22 30 14 Z" fill="#FFC93C" />
+        <path d="M30 18 C32 24 32 28 30 32 C28 28 28 24 30 18 Z" fill="#EE7B0C" />
+        <path d="M8 38 Q30 54 52 38 Q30 46 8 38 Z" fill="#C9852B" />
+        <path d="M8 38 Q30 50 52 38" fill="none" stroke="#8A6A14" strokeWidth="2" />
+      </svg>
+    </span>
+  )
+}
+
+// ---- Gold ornament divider (wedding-invitation style) ----
+export function GoldOrnamentDivider({ className = '', width = 220 }) {
+  return (
+    <svg width={width} height="22" viewBox="0 0 220 22" className={className} aria-hidden="true">
+      <g stroke="#C9A227" strokeWidth="1.5" fill="none">
+        <path d="M6 11 H92" />
+        <path d="M214 11 H128" />
+        <path d="M92 11 q9 -9 18 0 q9 9 18 0" />
+      </g>
+      <g fill="#C9A227">
+        <circle cx="110" cy="11" r="3.4" />
+        <circle cx="6" cy="11" r="2.6" />
+        <circle cx="214" cy="11" r="2.6" />
+        <path d="M110 2 l3 6 -3 -1 -3 1 z" />
+        <path d="M110 20 l3 -6 -3 1 -3 -1 z" />
+      </g>
+    </svg>
+  )
+}
+
 // ---- Peacock feather accent ----
 export function PeacockFeather({ className = '', size = 80 }) {
   return (

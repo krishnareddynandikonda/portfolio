@@ -19,6 +19,7 @@ export const profileData = {
     photo: '/photos/krishna-hero.jpg',
     blessing: 'శుభమస్తు',
     nameTe: 'నందికొండ కృష్ణ వర్ధన్ రెడ్డి',
+    nameTeLines: ['నందికొండ', 'కృష్ణ వర్ధన్ రెడ్డి'],
     name: 'Nandikonda Krishna Vardhan Reddy',
     tagline: 'Tradition, Family Values & A Beautiful Journey Ahead',
     teLine: 'శాంతి • గౌరవం • ప్రేమ',

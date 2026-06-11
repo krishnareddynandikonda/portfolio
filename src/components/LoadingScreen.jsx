@@ -47,7 +47,7 @@ export default function LoadingScreen({ data }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.55 }}
-        className="mt-3 font-heading text-2xl font-semibold text-cream md:text-3xl"
+        className="name-en mx-auto mt-3 text-center text-cream"
       >
         {data.name}
       </motion.p>
