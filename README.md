@@ -1,6 +1,10 @@
-# Krishna Vardan Reddy — Marriage Portfolio
+# నందికొండ కృష్ణ వర్ధన్ రెడ్డి — Marriage Portfolio
 
-A premium "Royal South Indian Hindu Marriage Portfolio" — React + Vite + Tailwind CSS + Framer Motion + Lucide icons.
+A colorful "Modern Telugu Hindu Marriage Portfolio" for **Nandikonda Krishna Vardhan Reddy** —
+yellow & white cultural luxury with floating sunflowers, rangoli/temple graphics, and Telugu +
+English content. Built with React + Vite + Tailwind CSS + Framer Motion + Lucide icons.
+
+Live (after Pages is enabled): https://krishnareddynandikonda.github.io/portfolio/
 
 ## Run locally
 

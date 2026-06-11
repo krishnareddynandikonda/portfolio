@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
-import { Flower2 } from 'lucide-react'
 
 // Resolve a /public asset path against Vite's base (so photos work on
-// GitHub Pages project sites, e.g. /krishnareddy/photos/...).
+// GitHub Pages project sites, e.g. /portfolio/photos/...).
 export const asset = (p) => (p ? import.meta.env.BASE_URL + p.replace(/^\//, '') : p)
 
 // ---- Reveal-on-scroll wrapper ----
@@ -20,76 +19,128 @@ export function Reveal({ children, delay = 0, y = 28, className = '' }) {
   )
 }
 
-// ---- Gold divider with lotus ----
-export function GoldDivider({ className = '' }) {
+// ---- Sunflower (decorative + floating particle) ----
+export function Sunflower({ className = '', size = 40 }) {
   return (
-    <div className={`gold-divider ${className}`}>
+    <svg width={size} height={size} viewBox="0 0 100 100" className={className} aria-hidden="true">
+      <g>
+        {Array.from({ length: 16 }).map((_, i) => {
+          const a = (i * 360) / 16
+          return (
+            <ellipse
+              key={i}
+              cx="50"
+              cy="22"
+              rx="7"
+              ry="18"
+              fill="#F5B700"
+              stroke="#EE7B0C"
+              strokeWidth="1"
+              transform={`rotate(${a} 50 50)`}
+            />
+          )
+        })}
+        <circle cx="50" cy="50" r="17" fill="#7A3E0A" />
+        <circle cx="50" cy="50" r="17" fill="url(#seed)" opacity="0.5" />
+        <defs>
+          <radialGradient id="seed">
+            <stop offset="0%" stopColor="#A9590F" />
+            <stop offset="100%" stopColor="#5A2E06" />
+          </radialGradient>
+        </defs>
+      </g>
+    </svg>
+  )
+}
+
+// ---- Sunflower / rangoli divider ----
+export function SunDivider({ className = '' }) {
+  return (
+    <div className={`sun-divider ${className}`}>
       <span className="line" />
       <span className="dot" />
-      <Flower2 className="h-5 w-5 text-gold-soft" strokeWidth={1.4} />
+      <Sunflower size={26} />
       <span className="dot" />
       <span className="line" />
     </div>
   )
 }
 
-// ---- Section eyebrow + heading ----
-export function SectionHeading({ eyebrow, heading, dark = false, center = true }) {
+// ---- Section heading: Telugu + English ----
+export function SectionHeading({ teHeading, heading, center = true }) {
   return (
     <div className={center ? 'text-center' : ''}>
-      <p className={`eyebrow text-xs ${dark ? 'text-gold-soft/80' : 'text-gold/90'}`}>{eyebrow}</p>
-      <h2
-        className={`mt-3 font-heading text-4xl font-semibold md:text-5xl ${
-          dark ? 'gold-text' : 'text-wine'
-        }`}
-      >
+      {teHeading && (
+        <p className="te text-2xl font-semibold text-saffron md:text-3xl">{teHeading}</p>
+      )}
+      <h2 className="mt-1 font-heading text-4xl font-semibold text-maroon md:text-5xl">
         {heading}
       </h2>
       <div className="mt-5 flex justify-center">
-        <GoldDivider />
+        <SunDivider />
       </div>
     </div>
   )
 }
 
-// ---- Photo with graceful placeholder fallback ----
+// ---- Photo with warm placeholder fallback ----
 export function Photo({ src, alt = 'Portrait', label = 'Add your photo' }) {
   if (src) {
     return <img className="ph-img" src={asset(src)} alt={alt} loading="lazy" />
   }
   return (
     <div className="photo-ph aspect-[3/4]">
-      <Flower2 className="h-10 w-10 text-gold-soft/80" strokeWidth={1.3} />
-      <span className="eyebrow text-[11px] text-gold-soft/90">{label}</span>
-      <span className="font-display text-sm italic text-ivory/70">3:4 portrait looks best</span>
+      <Sunflower size={42} />
+      <span className="eyebrow text-[11px] text-saffron">{label}</span>
+      <span className="font-display text-sm italic text-saffron/80">3:4 portrait looks best</span>
     </div>
   )
 }
 
-// ---- Subtle rotating mandala layer ----
-export function Mandala({ className = '', reverse = false, size = 520 }) {
+// ---- Rangoli corner ornament ----
+export function RangoliCorner({ className = '' }) {
+  return (
+    <svg viewBox="0 0 120 120" className={className} aria-hidden="true">
+      <g fill="none" stroke="#EE7B0C" strokeWidth="1.4" opacity="0.55">
+        <path d="M0 60 A60 60 0 0 1 60 0" />
+        <path d="M0 40 A40 40 0 0 1 40 0" />
+        <path d="M0 80 A80 80 0 0 1 80 0" />
+        {Array.from({ length: 6 }).map((_, i) => {
+          const a = (i * 90) / 5
+          const r = 70
+          const x = r * Math.cos((a * Math.PI) / 180)
+          const y = r * Math.sin((a * Math.PI) / 180)
+          return <circle key={i} cx={x} cy={y} r="4" fill="#F5B700" stroke="none" />
+        })}
+      </g>
+    </svg>
+  )
+}
+
+// ---- Subtle rotating mandala ----
+export function Mandala({ className = '', reverse = false, size = 520, color = '#EE7B0C' }) {
   return (
     <svg
       viewBox="0 0 200 200"
       width={size}
       height={size}
-      className={`pointer-events-none absolute opacity-[0.08] ${
+      className={`pointer-events-none absolute opacity-[0.10] ${
         reverse ? 'animate-spinRev' : 'animate-spinSlow'
       } ${className}`}
       aria-hidden="true"
     >
-      <g fill="none" stroke="#C9A227" strokeWidth="0.6">
+      <g fill="none" stroke={color} strokeWidth="0.7">
         <circle cx="100" cy="100" r="96" />
-        <circle cx="100" cy="100" r="78" />
-        <circle cx="100" cy="100" r="58" />
-        <circle cx="100" cy="100" r="34" />
+        <circle cx="100" cy="100" r="76" />
+        <circle cx="100" cy="100" r="54" />
+        <circle cx="100" cy="100" r="30" />
         {Array.from({ length: 24 }).map((_, i) => {
           const a = (i * Math.PI) / 12
           return (
             <line
               key={i}
-              x1={100 + 34 * Math.cos(a)}
-              y1={100 + 34 * Math.sin(a)}
+              x1={100 + 30 * Math.cos(a)}
+              y1={100 + 30 * Math.sin(a)}
               x2={100 + 96 * Math.cos(a)}
               y2={100 + 96 * Math.sin(a)}
             />
@@ -97,9 +148,7 @@ export function Mandala({ className = '', reverse = false, size = 520 }) {
         })}
         {Array.from({ length: 12 }).map((_, i) => {
           const a = (i * Math.PI) / 6
-          return (
-            <circle key={`p${i}`} cx={100 + 78 * Math.cos(a)} cy={100 + 78 * Math.sin(a)} r="6" />
-          )
+          return <circle key={`p${i}`} cx={100 + 76 * Math.cos(a)} cy={100 + 76 * Math.sin(a)} r="5" />
         })}
       </g>
     </svg>

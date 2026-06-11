@@ -8,10 +8,10 @@ export default function Gallery({ data }) {
   const photos = data.photos
 
   return (
-    <section id="gallery" className="paper-ivory relative py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="gallery" className="cream-bg texture relative py-28">
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
         <Reveal>
-          <SectionHeading eyebrow={data.eyebrow} heading={data.heading} />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
         </Reveal>
 
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
@@ -24,7 +24,7 @@ export default function Gallery({ data }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: (i % 5) * 0.05 }}
-              className="group gold-frame !p-2 text-left"
+              className="group sun-frame !p-2 text-left"
             >
               <div className="inner aspect-[3/4]">
                 <div className="h-full w-full overflow-hidden">
@@ -33,7 +33,7 @@ export default function Gallery({ data }) {
                   </div>
                 </div>
                 {g.caption && (
-                  <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-wine/85 to-transparent px-3 pb-2 pt-6 font-accent text-xs tracking-wide text-gold-soft opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-maroon/85 to-transparent px-3 pb-2 pt-6 font-accent text-xs tracking-wide text-sunshine opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     {g.caption}
                   </span>
                 )}
@@ -51,11 +51,11 @@ export default function Gallery({ data }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActive(null)}
-            className="fixed inset-0 z-[90] flex items-center justify-center bg-wine/90 p-6 backdrop-blur-sm"
+            className="fixed inset-0 z-[90] flex items-center justify-center bg-maroon/90 p-6 backdrop-blur-sm"
           >
             <button
               onClick={() => setActive(null)}
-              className="absolute right-6 top-6 text-gold-soft hover:text-ivory"
+              className="absolute right-6 top-6 text-sunshine hover:text-white"
               aria-label="Close"
             >
               <X className="h-8 w-8" />
@@ -68,7 +68,7 @@ export default function Gallery({ data }) {
               src={asset(photos[active].photo)}
               alt={photos[active].caption}
               onClick={(e) => e.stopPropagation()}
-              className="max-h-[85vh] max-w-full rounded-lg border-2 border-gold/60 shadow-luxe"
+              className="max-h-[85vh] max-w-full rounded-lg border-2 border-sunflower/70 shadow-warm"
             />
           </motion.div>
         )}

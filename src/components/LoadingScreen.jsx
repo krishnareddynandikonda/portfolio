@@ -1,41 +1,55 @@
 import { motion } from 'framer-motion'
-import { Flower2 } from 'lucide-react'
+import { Sunflower } from './shared.jsx'
 
 export default function LoadingScreen({ data }) {
   return (
     <motion.div
-      className="silk-maroon fixed inset-0 z-[100] flex flex-col items-center justify-center"
+      className="sun-bg fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
       initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.9, ease: 'easeInOut' }}
     >
+      {/* soft floating sunflowers */}
+      {Array.from({ length: 6 }).map((_, i) => (
+        <span
+          key={i}
+          className="absolute bottom-[-50px]"
+          style={{
+            left: `${10 + i * 15}%`,
+            animation: `floatUp ${16 + i * 2}s linear ${i * 1.5}s infinite`,
+            opacity: 0.4,
+          }}
+        >
+          <Sunflower size={28 + (i % 3) * 10} />
+        </span>
+      ))}
+
       <motion.div
-        initial={{ scale: 0.6, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        initial={{ scale: 0.6, opacity: 0, rotate: -30 }}
+        animate={{ scale: 1, opacity: 1, rotate: 0 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         className="relative flex h-28 w-28 items-center justify-center"
       >
-        <span className="absolute inset-0 rounded-full bg-gold/20 blur-2xl" />
-        <Flower2 className="h-14 w-14 text-gold-soft drop-shadow-[0_0_18px_rgba(230,199,102,0.6)]" strokeWidth={1.2} />
+        <span className="absolute inset-0 rounded-full bg-sunflower/40 blur-2xl animate-glow" />
+        <Sunflower size={88} />
       </motion.div>
 
       <motion.h1
-        initial={{ y: 18, opacity: 0 }}
+        initial={{ y: 16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.35 }}
-        className="mt-8 font-heading text-3xl font-semibold gold-text md:text-4xl"
+        transition={{ duration: 1, delay: 0.3 }}
+        className="te mt-7 text-4xl font-bold text-saffron md:text-5xl"
       >
-        {data.name}
+        {data.blessing}
       </motion.h1>
 
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.7 }}
-        className="eyebrow mt-3 text-[11px] text-gold-soft/70"
+        transition={{ duration: 1, delay: 0.55 }}
+        className="mt-3 font-heading text-2xl font-semibold text-maroon md:text-3xl"
       >
-        {data.tagline}
+        {data.name}
       </motion.p>
     </motion.div>
   )

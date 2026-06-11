@@ -1,179 +1,202 @@
 // ============================================================
 //  SINGLE SOURCE OF TRUTH — edit everything here.
+//  Telugu (te) + English live side by side on most fields.
 //  To replace a photo: drop your image in /public/photos and
 //  set the path below, e.g. photo: "/photos/krishna-hero.jpg".
-//  Leave "" to keep the elegant gold placeholder.
+//  Leave "" to keep the warm sunflower placeholder.
 // ============================================================
 
 export const profileData = {
-  name: 'Krishna Vardan Reddy',
+  name: 'Nandikonda Krishna Vardhan Reddy',
 
   loading: {
-    name: 'Krishna Vardan Reddy',
-    tagline: 'A Marriage Portfolio',
+    blessing: 'శుభమస్తు',
+    name: 'Nandikonda Krishna Vardhan Reddy',
+    nameTe: 'నందికొండ కృష్ణ వర్ధన్ రెడ్డి',
   },
 
   hero: {
     photo: '/photos/krishna-hero.jpg',
-    kicker: 'Royal South Indian Hindu Marriage Portfolio',
-    name: 'Krishna Vardan Reddy',
-    tagline: 'A graceful blend of tradition, values, ambition, and family.',
-    subtext:
-      'A refined marriage profile rooted in Hindu culture, family values, and a modern outlook toward life.',
+    blessing: 'శుభమస్తు',
+    nameTe: 'నందికొండ కృష్ణ వర్ధన్ రెడ్డి',
+    name: 'Nandikonda Krishna Vardhan Reddy',
+    tagline: 'Tradition, Family Values & A Beautiful Journey Ahead',
+    teLine: 'శాంతి • గౌరవం • ప్రేమ',
+    quickFacts: ['26 Years', "6' / 188 cm", 'Property Manager', 'Bratislava, Slovakia'],
     ctaPrimary: 'View Profile',
     ctaSecondary: 'Download Biodata',
   },
 
   intro: {
-    eyebrow: 'Introduction',
-    heading: 'A Life Rooted in Grace',
+    teHeading: 'వివాహ పరిచయం',
+    heading: 'Marriage Introduction',
     body:
-      'Krishna Vardan Reddy is a respectful, well-mannered, family-oriented individual with a calm personality and strong cultural values. He believes in tradition, meaningful relationships, career growth, and building a peaceful life with mutual respect.',
+      'Nandikonda Krishna Vardhan Reddy is a respectful, family-oriented, and culturally rooted individual with a modern outlook toward life. He values tradition, relationships, professional responsibility, and mutual respect.',
+    teLine: 'సాంప్రదాయం మరియు ఆధునిక జీవితం కలిసిన వ్యక్తిత్వం.',
   },
 
   // ---- 10 scroll-based photo storytelling sections ----
   photoStory: [
     {
       photo: '/photos/krishna-story-1.jpg',
+      teTitle: 'మంచి విలువలు',
       title: 'A Man of Values',
       text:
-        'Krishna carries strong family values and believes in respect, kindness, honesty, and integrity in every aspect of life.',
+        'Krishna carries strong family values and believes in respect, kindness, honesty, and integrity.',
     },
     {
       photo: '/photos/krishna-story-2.jpg',
+      teTitle: 'మన సంప్రదాయం',
       title: 'Rooted in Tradition',
       text:
-        'He respects Hindu traditions, family customs, festivals, rituals, and the timeless beauty of Indian culture.',
+        'He respects Hindu traditions, Telugu culture, family customs, festivals, and meaningful rituals.',
     },
     {
       photo: '/photos/krishna-story-3.jpg',
+      teTitle: 'ప్రశాంత స్వభావం',
       title: 'Calm and Responsible',
       text:
-        'His personality reflects maturity, patience, and responsibility, making him dependable and emotionally balanced.',
+        'His calm nature, patience, and maturity make him dependable and emotionally balanced.',
     },
     {
       photo: '/photos/krishna-story-4.jpg',
+      teTitle: 'వృత్తి పై దృష్టి',
       title: 'Professionally Focused',
       text:
-        'Krishna is career-oriented, disciplined, and committed to building a secure, stable, and meaningful future.',
+        'As a Property Manager at Hotel Puzzle s.r.o in Bratislava, he is responsible, disciplined, and career-focused.',
     },
     {
       photo: '/photos/krishna-story-5.jpg',
+      teTitle: 'కుటుంబానికి ప్రాధాన్యం',
       title: 'Family First',
-      text:
-        'He values togetherness, family bonding, respectful relationships, and the warmth of a close family environment.',
+      text: 'He values family bonding, togetherness, respect, and warm relationships.',
     },
     {
       photo: '/photos/krishna-story-6.jpg',
+      teTitle: 'సరళమైన జీవితం',
       title: 'Simple and Elegant Living',
-      text:
-        'He believes in a balanced lifestyle defined by simplicity, dignity, discipline, and meaningful living.',
+      text: 'He believes in a balanced lifestyle with simplicity, dignity, and purpose.',
     },
     {
       photo: '/photos/krishna-story-7.jpg',
+      teTitle: 'మంచి మనసు',
       title: 'Positive Personality',
       text:
-        'His calm nature, humility, and friendly character make him easy to connect with and deeply respected.',
+        'His humility, kindness, and friendly nature make people feel comfortable around him.',
     },
     {
       photo: '/photos/krishna-story-8.jpg',
+      teTitle: 'గౌరవమైన భాగస్వామి',
       title: 'Respectful Life Partner',
       text:
         'He believes marriage is built on trust, understanding, emotional support, patience, and shared values.',
     },
     {
       photo: '/photos/krishna-story-9.jpg',
+      teTitle: 'సంస్కృతి పై గౌరవం',
       title: 'Cultural Pride',
       text:
-        'Krishna appreciates Indian traditions, spiritual values, festive celebrations, and the beauty of Hindu family culture.',
+        'He appreciates Indian traditions, spiritual values, Telugu family culture, and festive celebrations.',
     },
     {
       photo: '/photos/krishna-story-10.jpg',
+      teTitle: 'కొత్త ప్రయాణం',
       title: 'Ready for a Meaningful Journey',
       text:
-        'He looks forward to a beautiful married life filled with companionship, respect, happiness, and shared dreams.',
+        'He looks forward to a beautiful married life filled with respect, happiness, companionship, and shared dreams.',
     },
   ],
 
   profile: {
-    eyebrow: 'Profile Details',
-    heading: 'Biodata',
+    teHeading: 'వ్యక్తిగత వివరాలు',
+    heading: 'Profile Details',
     rows: [
-      { label: 'Name', value: 'Krishna Vardan Reddy', icon: 'User' },
-      { label: 'Age', value: '28 Years', icon: 'CalendarDays' },
-      { label: 'Height', value: "5'10\"", icon: 'Ruler' },
-      { label: 'Religion', value: 'Hindu', icon: 'Flower2' },
-      { label: 'Community', value: 'Reddy', icon: 'Users' },
-      { label: 'Mother Tongue', value: 'Telugu', icon: 'Languages' },
-      { label: 'Education', value: "Bachelor's Degree", icon: 'GraduationCap' },
-      { label: 'Profession', value: 'Software Professional', icon: 'Briefcase' },
-      { label: 'Location', value: 'Hyderabad, Telangana', icon: 'MapPin' },
-      { label: 'Lifestyle', value: 'Family-oriented, disciplined, respectful', icon: 'Heart' },
+      { label: 'Name', value: 'Nandikonda Krishna Vardhan Reddy', icon: 'User' },
+      { label: 'తెలుగు పేరు', value: 'నందికొండ కృష్ణ వర్ధన్ రెడ్డి', icon: 'Languages' },
+      { label: 'Date of Birth', value: '13 July 1999', icon: 'CalendarDays' },
+      { label: 'Age', value: '26 Years', icon: 'Clock' },
+      { label: 'Height', value: "188 cm / 6'", icon: 'Ruler' },
+      { label: 'Caste', value: 'Reddy (Motati)', icon: 'Users' },
+      { label: 'Gothram', value: 'Chamanthala', icon: 'Flower2' },
+      { label: 'Star', value: 'Punarvasu', icon: 'Star' },
+      { label: 'Rashi', value: 'Mithunam', icon: 'Moon' },
+      { label: 'Profession', value: 'Property Manager – Hotel Puzzle s.r.o', icon: 'Briefcase' },
+      { label: 'Location', value: 'Bratislava, Slovakia', icon: 'MapPin' },
+      { label: 'Annual Income', value: '€17,600 / approx. ₹15.8 Lakhs per year', icon: 'Wallet' },
     ],
   },
 
   family: {
-    eyebrow: 'Family Background',
-    heading: 'A Cultured & Welcoming Home',
+    teHeading: 'కుటుంబ నేపథ్యం',
+    heading: 'Family Background',
     body:
-      'He comes from a respectable and cultured Hindu family that values education, traditions, relationships, and social respect. The family carries a warm, welcoming, and modern outlook while staying connected to cultural roots.',
-    values: ['Education', 'Traditions', 'Relationships', 'Respect', 'Togetherness', 'Modern Outlook'],
+      'He comes from a respectable and cultured Reddy Hindu family that values agriculture, tradition, hard work, family bonding, and social respect. The family carries a warm and welcoming outlook while staying connected to Telugu cultural roots.',
+    members: [
+      { role: 'Father', name: 'Anji Reddy', detail: 'Agriculture & Fertilizer Business', icon: 'UserRound' },
+      { role: 'Mother', name: 'Padma', detail: 'Homemaker & Farmer', icon: 'Flower2' },
+      { role: 'Brother', name: 'Nandikonda Shiva Vardhan Reddy', detail: 'Sibling', icon: 'Users' },
+    ],
+    values: ['Agriculture', 'Tradition', 'Hard Work', 'Family Bonding', 'Social Respect'],
   },
 
   career: {
-    eyebrow: 'Education & Career',
-    heading: 'A Steady, Purposeful Path',
-    timeline: [
-      { title: "Bachelor's Degree", desc: 'A strong academic foundation built on discipline and curiosity.' },
-      { title: 'Software Professional', desc: 'Building a rewarding career in technology with consistency.' },
-      { title: 'Stable Career Path', desc: 'Focused on security, reliability, and steady professional growth.' },
-      { title: 'Growth Mindset', desc: 'Always learning, improving, and embracing new opportunities.' },
-      { title: 'Responsible Future Planning', desc: 'Thoughtful about family, finances, and a balanced life.' },
-      { title: 'Professional Discipline', desc: 'Dedicated, dependable, and committed to doing things well.' },
+    teHeading: 'వృత్తి',
+    heading: 'Profession & Career',
+    body:
+      'Krishna is professionally settled in Bratislava, Slovakia, working as a Property Manager at Hotel Puzzle s.r.o. His career reflects responsibility, discipline, stability, and a strong work ethic.',
+    cards: [
+      { label: 'Role', value: 'Property Manager', icon: 'Briefcase' },
+      { label: 'Company', value: 'Hotel Puzzle s.r.o', icon: 'Building2' },
+      { label: 'Location', value: 'Bratislava, Slovakia', icon: 'MapPin' },
+      { label: 'Annual Income', value: '€17,600 / approx. ₹15.8 Lakhs', icon: 'Wallet' },
+      { label: 'Education', value: 'To be updated', icon: 'GraduationCap' },
+      { label: 'Work Ethic', value: 'Responsible & disciplined', icon: 'TrendingUp' },
     ],
   },
 
   horoscope: {
-    eyebrow: 'Horoscope & Hindu Details',
-    heading: 'Traditional Particulars',
+    teHeading: 'జాతక వివరాలు',
+    heading: 'Horoscope Details',
     rows: [
-      { label: 'Date of Birth', value: '15 August 1996' },
-      { label: 'Time of Birth', value: '7:30 AM' },
-      { label: 'Place of Birth', value: 'Hyderabad' },
-      { label: 'Rashi', value: 'Simha' },
-      { label: 'Nakshatra', value: 'Magha' },
-      { label: 'Gotra', value: 'To be updated' },
+      { label: 'Date of Birth', value: '13 July 1999' },
+      { label: 'Time of Birth', value: 'To be updated' },
+      { label: 'Place of Birth', value: 'To be updated' },
+      { label: 'Star (Nakshatra)', value: 'Punarvasu' },
+      { label: 'Rashi', value: 'Mithunam' },
+      { label: 'Gothram', value: 'Chamanthala' },
+      { label: 'Caste', value: 'Reddy (Motati)' },
       { label: 'Manglik Status', value: 'To be updated' },
     ],
   },
 
   lifestyle: {
-    eyebrow: 'Lifestyle & Interests',
-    heading: 'What Shapes His World',
+    teHeading: 'జీవన శైలి',
+    heading: 'Lifestyle & Interests',
     tiles: [
       { label: 'Family Values', icon: 'Home' },
+      { label: 'Telugu Culture', icon: 'Landmark' },
       { label: 'Spirituality', icon: 'Sparkles' },
-      { label: 'Travel', icon: 'Plane' },
-      { label: 'Music', icon: 'Music2' },
-      { label: 'Fitness', icon: 'Dumbbell' },
       { label: 'Festivals', icon: 'PartyPopper' },
-      { label: 'Culture', icon: 'Landmark' },
+      { label: 'Travel', icon: 'Plane' },
       { label: 'Career Growth', icon: 'TrendingUp' },
-      { label: 'Meaningful Relationships', icon: 'HeartHandshake' },
       { label: 'Simple Living', icon: 'Leaf' },
+      { label: 'Meaningful Relationships', icon: 'HeartHandshake' },
+      { label: 'Responsibility', icon: 'ShieldCheck' },
+      { label: 'Respectful Nature', icon: 'Heart' },
     ],
   },
 
   partner: {
-    eyebrow: 'Partner Expectations',
-    heading: 'Seeking a Kindred Soul',
+    teHeading: 'జీవిత భాగస్వామి ఆశలు',
+    heading: 'Partner Expectations',
     body:
-      'Looking for a kind-hearted, educated, family-oriented life partner who respects Indian traditions, values relationships, and believes in building a peaceful and happy married life together.',
+      'Looking for a kind-hearted, educated, family-oriented life partner who respects Indian traditions, Telugu culture, relationships, and believes in building a peaceful and happy married life together.',
+    teLine: 'గౌరవం, నమ్మకం, ప్రేమతో కూడిన అందమైన జీవితం.',
   },
 
   gallery: {
-    eyebrow: 'Gallery',
-    heading: 'Moments & Memories',
+    teHeading: 'ఫోటో గ్యాలరీ',
+    heading: 'Photo Gallery',
     photos: [
       { photo: '/photos/krishna-story-8.jpg', caption: 'Portrait' },
       { photo: '/photos/krishna-story-1.jpg', caption: 'Grace' },
@@ -189,17 +212,18 @@ export const profileData = {
   },
 
   contact: {
-    eyebrow: 'Contact',
-    heading: 'Reach the Family',
-    phone: '+91 98765 43210',
-    phoneDial: '+919876543210',
-    whatsapp: '919876543210',
-    email: 'krishnavardan@example.com',
-    location: 'Hyderabad, Telangana',
+    teHeading: 'సంప్రదించండి',
+    heading: 'Contact',
+    phone: 'To be updated',
+    phoneDial: '',
+    whatsapp: '',
+    email: 'To be updated',
+    location: 'Bratislava, Slovakia / India',
   },
 
   footer: {
-    name: 'Krishna Vardan Reddy',
+    blessing: 'శుభమస్తు',
+    name: 'Nandikonda Krishna Vardhan Reddy',
     line: 'Built with tradition, values, and grace.',
   },
 }

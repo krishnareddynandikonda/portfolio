@@ -12,141 +12,162 @@ html {
 
 body {
   margin: 0;
-  background: #4a0712;
-  color: #24140f;
+  background: #fffbef;
+  color: #3a2412;
   font-family: 'Lora', serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 @layer components {
-  /* Gold gradient text */
+  /* ---- Telugu helpers ---- */
+  .te {
+    font-family: 'Baloo Tammudu 2', 'Noto Sans Telugu', sans-serif;
+  }
+  .te-body {
+    font-family: 'Noto Sans Telugu', sans-serif;
+  }
+
+  /* ---- Warm gradient text ---- */
+  .sun-text {
+    background: linear-gradient(180deg, #ffd34d 0%, #f5b700 38%, #ee7b0c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
   .gold-text {
-    background: linear-gradient(180deg, #f6e3a0 0%, #e6c766 35%, #c9a227 62%, #9c7c1a 100%);
+    background: linear-gradient(180deg, #f0d98c 0%, #c9a227 55%, #9c7c1a 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
 
-  /* Silk maroon backdrop */
-  .silk-maroon {
+  /* ---- Section backgrounds ---- */
+  .cream-bg {
     background:
-      radial-gradient(1200px 700px at 50% -10%, rgba(230, 199, 102, 0.16), transparent 60%),
-      radial-gradient(900px 600px at 90% 110%, rgba(35, 77, 60, 0.22), transparent 60%),
-      linear-gradient(160deg, #5a0c18 0%, #4a0712 45%, #36050f 100%);
-    position: relative;
+      radial-gradient(900px 500px at 10% -5%, rgba(245, 183, 0, 0.12), transparent 55%),
+      radial-gradient(900px 600px at 100% 105%, rgba(229, 99, 155, 0.08), transparent 55%),
+      linear-gradient(180deg, #fffdf6 0%, #fff6df 100%);
   }
-  .silk-maroon::before {
+  .sun-bg {
+    background:
+      radial-gradient(1000px 600px at 50% -10%, rgba(255, 211, 77, 0.55), transparent 60%),
+      radial-gradient(700px 500px at 90% 110%, rgba(238, 123, 12, 0.16), transparent 60%),
+      linear-gradient(180deg, #fff3cf 0%, #ffe6a6 100%);
+  }
+  .petal-bg {
+    background:
+      radial-gradient(800px 500px at 0% 0%, rgba(229, 99, 155, 0.10), transparent 55%),
+      radial-gradient(800px 500px at 100% 100%, rgba(14, 124, 155, 0.08), transparent 55%),
+      linear-gradient(180deg, #fffdf6 0%, #fdfaf0 100%);
+  }
+
+  /* paper texture overlay */
+  .texture::before {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.08;
-    background-image: repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 7px);
-    mix-blend-mode: overlay;
+    opacity: 0.5;
+    background-image: radial-gradient(rgba(201, 162, 39, 0.10) 1px, transparent 1px);
+    background-size: 22px 22px;
   }
 
-  /* Ivory paper backdrop */
-  .paper-ivory {
-    background:
-      radial-gradient(900px 500px at 12% 0%, rgba(201, 162, 39, 0.10), transparent 55%),
-      radial-gradient(900px 600px at 100% 100%, rgba(35, 77, 60, 0.08), transparent 55%),
-      linear-gradient(180deg, #fff8e7 0%, #f6ecd2 100%);
-  }
-
-  /* Gold divider */
-  .gold-divider {
+  /* ---- Gold / rangoli divider ---- */
+  .sun-divider {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 14px;
   }
-  .gold-divider .line {
-    height: 1px;
-    width: 90px;
-    background: linear-gradient(90deg, transparent, #c9a227, transparent);
+  .sun-divider .line {
+    height: 2px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, #ee7b0c, #f5b700, transparent);
+    border-radius: 2px;
   }
-  .gold-divider .dot {
+  .sun-divider .dot {
     width: 9px;
     height: 9px;
     transform: rotate(45deg);
-    background: linear-gradient(135deg, #e6c766, #c9a227);
-    box-shadow: 0 0 12px rgba(201, 162, 39, 0.7);
+    background: linear-gradient(135deg, #ffd34d, #ee7b0c);
+    box-shadow: 0 0 12px rgba(245, 183, 0, 0.7);
   }
 
-  /* Gold photo frame */
-  .gold-frame {
+  /* ---- Premium temple-arch photo frame ---- */
+  .arch-frame {
     position: relative;
-    border-radius: 16px;
-    padding: 10px;
-    background: linear-gradient(135deg, #f6e3a0, #c9a227 40%, #8a6a14 60%, #e6c766 100%);
-    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+    padding: 9px;
+    border-radius: 50% 50% 14px 14px / 28% 28% 14px 14px;
+    background: linear-gradient(150deg, #ffd34d, #f5b700 38%, #ee7b0c 75%, #c9a227 100%);
+    box-shadow: 0 22px 55px rgba(238, 123, 12, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.45);
   }
-  .gold-frame .inner {
+  .arch-frame .inner {
     position: relative;
-    border-radius: 9px;
     overflow: hidden;
-    background: #2a0c12;
-    box-shadow: inset 0 0 0 2px rgba(54, 5, 15, 0.9), inset 0 0 0 4px rgba(230, 199, 102, 0.55);
-  }
-  .gold-frame::after {
-    content: '';
-    position: absolute;
-    inset: 4px;
-    border-radius: 12px;
-    border: 1px dashed rgba(54, 5, 15, 0.35);
-    pointer-events: none;
+    border-radius: 46% 46% 10px 10px / 26% 26% 10px 10px;
+    background: #fff7e6;
+    box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.85), inset 0 0 0 5px rgba(245, 183, 0, 0.5);
   }
 
-  /* Elegant glass panels */
-  .glass {
-    background: linear-gradient(160deg, rgba(255, 248, 231, 0.9), rgba(246, 236, 210, 0.78));
-    border: 1px solid rgba(201, 162, 39, 0.5);
-    box-shadow: 0 18px 50px rgba(74, 7, 18, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(6px);
-    border-radius: 20px;
+  /* ---- Simple gold-bordered photo frame (gallery / story) ---- */
+  .sun-frame {
+    position: relative;
+    padding: 8px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffd34d, #f5b700 45%, #ee7b0c 100%);
+    box-shadow: 0 16px 42px rgba(238, 123, 12, 0.25);
   }
-  .glass-dark {
-    background: linear-gradient(160deg, rgba(74, 7, 18, 0.55), rgba(40, 12, 18, 0.45));
-    border: 1px solid rgba(201, 162, 39, 0.4);
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(230, 199, 102, 0.25);
-    backdrop-filter: blur(8px);
-    border-radius: 20px;
+  .sun-frame .inner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fff7e6;
   }
 
-  /* Buttons */
-  .btn-gold {
+  /* ---- Cards ---- */
+  .card {
+    background: #ffffff;
+    border: 1px solid rgba(245, 183, 0, 0.45);
+    border-radius: 18px;
+    box-shadow: 0 14px 38px rgba(238, 123, 12, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  /* ---- Buttons ---- */
+  .btn-sun {
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     font-weight: 600;
-    background: linear-gradient(180deg, #f4e0a0, #d9b53f 45%, #b8911f 100%);
-    color: #43130f;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 10px 26px rgba(201, 162, 39, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    color: #5a1208;
+    background: linear-gradient(180deg, #ffd860, #f5b700 50%, #ee7b0c 100%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 12px 28px rgba(245, 183, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.8);
     border-radius: 999px;
     transition: transform 0.25s, box-shadow 0.25s;
   }
-  .btn-gold:hover {
+  .btn-sun:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 36px rgba(201, 162, 39, 0.6);
+    box-shadow: 0 18px 38px rgba(238, 123, 12, 0.55);
   }
   .btn-outline {
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     font-weight: 600;
-    background: transparent;
-    color: #f0d98c;
-    border: 1px solid rgba(230, 199, 102, 0.7);
+    color: #b3550a;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(238, 123, 12, 0.55);
     border-radius: 999px;
     transition: all 0.25s;
   }
   .btn-outline:hover {
-    background: rgba(230, 199, 102, 0.12);
+    background: #fff;
     transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(238, 123, 12, 0.2);
   }
 
-  /* Placeholder image fill */
+  /* ---- Placeholder fill ---- */
   .photo-ph {
     width: 100%;
     height: 100%;
@@ -156,13 +177,12 @@ body {
     justify-content: center;
     gap: 10px;
     background:
-      radial-gradient(circle at 50% 35%, rgba(230, 199, 102, 0.18), transparent 60%),
-      repeating-conic-gradient(from 0deg at 50% 50%, rgba(201, 162, 39, 0.06) 0deg 12deg, transparent 12deg 24deg),
-      linear-gradient(160deg, #6b0f1a, #4a0712);
-    color: #f0d98c;
+      radial-gradient(circle at 50% 35%, rgba(255, 211, 77, 0.55), transparent 60%),
+      repeating-conic-gradient(from 0deg at 50% 50%, rgba(238, 123, 12, 0.06) 0deg 14deg, transparent 14deg 28deg),
+      linear-gradient(160deg, #fff3cf, #ffe6a6);
+    color: #b3550a;
     text-align: center;
   }
-
   .ph-img {
     width: 100%;
     height: 100%;
@@ -171,9 +191,8 @@ body {
   }
 }
 
-/* Section label */
 .eyebrow {
   font-family: 'Cinzel', serif;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
 }

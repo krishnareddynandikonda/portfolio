@@ -1,37 +1,50 @@
-import { motion } from 'framer-motion'
-import { Heart } from 'lucide-react'
+import * as Icons from 'lucide-react'
 import { Reveal, SectionHeading, Mandala } from './shared.jsx'
 
 export default function FamilyBackground({ data }) {
   return (
-    <section id="family" className="silk-maroon relative overflow-hidden py-28">
-      <Mandala className="-left-44 top-1/4" size={520} />
+    <section id="family" className="cream-bg texture relative overflow-hidden py-28">
+      <Mandala className="-left-44 top-1/4" size={460} color="#1E7A52" />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6">
+      <div className="relative z-10 mx-auto max-w-5xl px-6">
         <Reveal>
-          <SectionHeading eyebrow={data.eyebrow} heading={data.heading} dark />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
         </Reveal>
 
-        <Reveal delay={0.15}>
-          <div className="glass-dark mt-12 p-10 text-center md:p-14">
-            <p className="font-display text-2xl leading-relaxed text-ivory/90 md:text-[26px]">
-              {data.body}
-            </p>
+        <Reveal delay={0.12}>
+          <p className="mx-auto mt-10 max-w-3xl text-center font-display text-2xl leading-relaxed text-ink/85">
+            {data.body}
+          </p>
+        </Reveal>
 
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
-              {data.values.map((v, i) => (
-                <motion.span
-                  key={v}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm text-gold-soft"
-                >
-                  <Heart className="h-3.5 w-3.5" /> {v}
-                </motion.span>
-              ))}
-            </div>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {data.members.map((m, i) => {
+            const Icon = Icons[m.icon] || Icons.UserRound
+            return (
+              <Reveal key={m.role} delay={i * 0.08}>
+                <div className="card flex h-full flex-col items-center px-6 py-8 text-center transition-transform duration-300 hover:-translate-y-1">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-sunshine to-saffron text-white shadow-sun">
+                    <Icon className="h-6 w-6" strokeWidth={1.6} />
+                  </span>
+                  <p className="eyebrow mt-4 text-[10px] text-saffron">{m.role}</p>
+                  <p className="mt-1 font-heading text-xl font-semibold text-maroon">{m.name}</p>
+                  <p className="mt-1 text-ink/70">{m.detail}</p>
+                </div>
+              </Reveal>
+            )
+          })}
+        </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            {data.values.map((v) => (
+              <span
+                key={v}
+                className="rounded-full border border-saffron/40 bg-white/70 px-4 py-2 text-sm text-saffron shadow-sm"
+              >
+                {v}
+              </span>
+            ))}
           </div>
         </Reveal>
       </div>
