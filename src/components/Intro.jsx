@@ -1,9 +1,13 @@
-import { Reveal, SunDivider, Mandala, Lotus } from './shared.jsx'
+import { Reveal, SunDivider, Mandala, Lotus, RangoliCorner } from './shared.jsx'
 
 export default function Intro({ data }) {
   return (
     <section id="intro" className="cream-bg texture relative overflow-hidden py-28">
       <Mandala className="-right-40 top-10" size={420} color="#0E7C9B" />
+      <RangoliCorner className="absolute left-0 top-0 h-32 w-32 opacity-60" />
+      <RangoliCorner className="absolute right-0 top-0 h-32 w-32 -scale-x-100 opacity-60" />
+      <RangoliCorner className="absolute bottom-0 left-0 h-32 w-32 -scale-y-100 opacity-60" />
+      <RangoliCorner className="absolute bottom-0 right-0 h-32 w-32 -scale-100 opacity-60" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <Reveal>

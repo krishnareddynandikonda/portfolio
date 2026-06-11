@@ -3,7 +3,29 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Photo, Mandala, Sunflower, Garland, RangoliCorner } from './shared.jsx'
 import { Toranam } from './CulturalArtwork.jsx'
 
-const TINTS = ['cream-bg', 'petal-bg', 'sun-bg']
+// One rich cultural color mood per story chapter (per the wedding brief)
+const STORY_MOODS = [
+  // 01 saffron + maroon + gold
+  'radial-gradient(700px 460px at 10% 0%, rgba(238,123,12,.30), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(122,18,32,.20), transparent 60%), linear-gradient(180deg,#fff3df,#ffe3b8)',
+  // 02 peacock blue + ivory + gold
+  'radial-gradient(700px 460px at 0% 0%, rgba(14,124,155,.26), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(201,162,39,.22), transparent 60%), linear-gradient(180deg,#f3fbfd,#dcf0f6)',
+  // 03 lotus pink + maroon + emerald
+  'radial-gradient(700px 460px at 0% 0%, rgba(229,99,155,.30), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(30,122,82,.16), transparent 60%), linear-gradient(180deg,#fff2f7,#ffdfeb)',
+  // 04 emerald + ivory + gold
+  'radial-gradient(700px 460px at 10% 0%, rgba(30,122,82,.26), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(201,162,39,.22), transparent 60%), linear-gradient(180deg,#f1fbf5,#daf1e4)',
+  // 05 turmeric + maroon + emerald
+  'radial-gradient(700px 460px at 0% 0%, rgba(245,183,0,.34), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(30,122,82,.18), transparent 60%), linear-gradient(180deg,#fff6cf,#ffe79e)',
+  // 06 sandalwood cream + lotus pink + gold
+  'radial-gradient(700px 460px at 100% 0%, rgba(229,99,155,.20), transparent 60%), radial-gradient(700px 460px at 0% 100%, rgba(201,162,39,.22), transparent 60%), linear-gradient(180deg,#fdf3e4,#f2e2c6)',
+  // 07 lotus pink + peacock blue + ivory
+  'radial-gradient(700px 460px at 0% 0%, rgba(229,99,155,.24), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(14,124,155,.22), transparent 60%), linear-gradient(180deg,#fff3f8,#e8f3f8)',
+  // 08 deep maroon + gold + lotus (dark)
+  'radial-gradient(760px 520px at 50% -10%, rgba(201,162,39,.32), transparent 62%), radial-gradient(640px 480px at 100% 100%, rgba(229,99,155,.28), transparent 60%), linear-gradient(180deg,#6a1020,#48101f)',
+  // 09 royal purple + saffron + gold (dark)
+  'radial-gradient(760px 520px at 50% -10%, rgba(201,162,39,.28), transparent 62%), radial-gradient(640px 480px at 0% 100%, rgba(238,123,12,.26), transparent 60%), linear-gradient(180deg,#3c1a5a,#2a134a)',
+  // 10 gold + maroon + lotus + ivory (blessing)
+  'radial-gradient(760px 520px at 50% 0%, rgba(201,162,39,.32), transparent 62%), radial-gradient(640px 480px at 100% 100%, rgba(229,99,155,.18), transparent 60%), linear-gradient(180deg,#fff6df,#ffe9c2)',
+]
 const GLOWS = ['#F5B700', '#E5639B', '#0E7C9B', '#1E7A52', '#EE7B0C']
 
 function StoryRow({ item, index }) {
@@ -19,7 +41,11 @@ function StoryRow({ item, index }) {
   const glow = GLOWS[index % GLOWS.length]
 
   return (
-    <div ref={ref} className={`${TINTS[index % TINTS.length]} texture relative overflow-hidden`}>
+    <div
+      ref={ref}
+      className="texture relative overflow-hidden"
+      style={{ background: STORY_MOODS[index % STORY_MOODS.length] }}
+    >
       <RangoliCorner className="absolute left-0 top-0 h-28 w-28 opacity-70" />
       <RangoliCorner className="absolute bottom-0 right-0 h-28 w-28 -scale-100 opacity-70" />
 

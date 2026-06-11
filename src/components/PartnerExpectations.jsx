@@ -3,12 +3,12 @@ import { Reveal, SectionHeading, Mandala } from './shared.jsx'
 
 export default function PartnerExpectations({ data }) {
   return (
-    <section id="partner" className="sun-bg texture relative overflow-hidden py-28">
-      <Mandala className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" size={560} color="#E5639B" />
+    <section id="partner" className="rose-bg relative overflow-hidden py-28">
+      <Mandala className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" size={560} color="#E6C766" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark />
         </Reveal>
 
         <Reveal delay={0.15}>

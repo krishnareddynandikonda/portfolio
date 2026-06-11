@@ -1,12 +1,13 @@
 import * as Icons from 'lucide-react'
-import { Reveal, SectionHeading } from './shared.jsx'
+import { Reveal, SectionHeading, Mandala } from './shared.jsx'
 
 export default function ProfileDetails({ data }) {
   return (
-    <section id="profile" className="sun-bg texture relative py-28">
+    <section id="profile" className="royal-bg relative py-28">
+      <Mandala className="left-1/2 top-10 -translate-x-1/2" size={420} color="#E6C766" />
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark />
         </Reveal>
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2">

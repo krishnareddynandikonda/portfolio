@@ -7,12 +7,13 @@ export default function Contact({ data, onDownload }) {
   const hasEmail = data.email && data.email.includes('@')
 
   return (
-    <section id="contact" className="sun-bg texture relative overflow-hidden py-28">
-      <Mandala className="-left-40 -bottom-40" size={500} color="#0E7C9B" />
+    <section id="contact" className="royal-bg relative overflow-hidden py-28">
+      <Mandala className="-left-40 -bottom-40" size={500} color="#E6C766" />
+      <Mandala className="left-1/2 top-8 -translate-x-1/2" size={360} color="#E6C766" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark />
         </Reveal>
 
         <Reveal delay={0.15}>

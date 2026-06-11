@@ -78,6 +78,25 @@ body {
       linear-gradient(180deg, #61101d 0%, #4a0712 55%, #38050f 100%);
     color: #fff6e6;
   }
+  /* peacock-blue career backdrop */
+  .peacock-bg {
+    background:
+      radial-gradient(820px 560px at 50% -10%, rgba(201, 162, 39, 0.28), transparent 62%),
+      radial-gradient(640px 480px at 6% 100%, rgba(30, 122, 82, 0.34), transparent 60%),
+      radial-gradient(640px 480px at 96% 96%, rgba(14, 124, 155, 0.30), transparent 60%),
+      linear-gradient(180deg, #0c4f63 0%, #0a3d4f 100%);
+    color: #eaf6f8;
+  }
+  /* lotus-pink + maroon "vow card" backdrop */
+  .rose-bg {
+    background:
+      radial-gradient(820px 560px at 50% -10%, rgba(201, 162, 39, 0.26), transparent 62%),
+      radial-gradient(680px 520px at 8% 100%, rgba(122, 18, 32, 0.30), transparent 60%),
+      radial-gradient(680px 520px at 96% 92%, rgba(229, 99, 155, 0.40), transparent 60%),
+      linear-gradient(180deg, #7a1c3a 0%, #5c1330 100%);
+    color: #ffeef5;
+  }
+
   /* night-sky horoscope backdrop */
   .night-bg {
     background:

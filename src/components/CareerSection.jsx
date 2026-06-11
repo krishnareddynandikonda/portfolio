@@ -3,14 +3,14 @@ import { Reveal, SectionHeading } from './shared.jsx'
 
 export default function CareerSection({ data }) {
   return (
-    <section id="career" className="sun-bg texture relative py-28">
+    <section id="career" className="peacock-bg stars relative py-28">
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         <Reveal>
-          <SectionHeading teHeading={data.teHeading} heading={data.heading} />
+          <SectionHeading teHeading={data.teHeading} heading={data.heading} dark />
         </Reveal>
 
         <Reveal delay={0.12}>
-          <p className="mx-auto mt-10 max-w-3xl text-center font-display text-2xl leading-relaxed text-ink/85">
+          <p className="mx-auto mt-10 max-w-3xl text-center font-display text-2xl leading-relaxed text-cream/90">
             {data.body}
           </p>
         </Reveal>
