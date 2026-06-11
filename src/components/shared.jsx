@@ -53,6 +53,51 @@ export function Sunflower({ className = '', size = 40 }) {
   )
 }
 
+// ---- Marigold flower (layered petals) ----
+export function Marigold({ className = '', size = 36, color = '#EE7B0C' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" className={className} aria-hidden="true">
+      {Array.from({ length: 12 }).map((_, i) => (
+        <circle key={`o${i}`} cx="50" cy="20" r="11" fill={color} transform={`rotate(${i * 30} 50 50)`} opacity="0.95" />
+      ))}
+      {Array.from({ length: 12 }).map((_, i) => (
+        <circle key={`m${i}`} cx="50" cy="30" r="9" fill="#FFB000" transform={`rotate(${i * 30 + 15} 50 50)`} />
+      ))}
+      <circle cx="50" cy="50" r="13" fill="#C85A00" />
+    </svg>
+  )
+}
+
+// ---- Lotus motif ----
+export function Lotus({ className = '', size = 60, color = '#E5639B' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 120 80" className={className} aria-hidden="true">
+      <g fill="none" stroke={color} strokeWidth="2" strokeLinejoin="round">
+        <path d="M60 72 C40 55 40 28 60 12 C80 28 80 55 60 72 Z" fill={`${color}22`} />
+        <path d="M60 72 C30 60 20 38 26 20 C46 26 58 46 60 72 Z" fill={`${color}1a`} />
+        <path d="M60 72 C90 60 100 38 94 20 C74 26 62 46 60 72 Z" fill={`${color}1a`} />
+        <path d="M60 72 C22 66 8 50 6 36 C30 36 50 52 60 72 Z" fill={`${color}14`} />
+        <path d="M60 72 C98 66 112 50 114 36 C90 36 70 52 60 72 Z" fill={`${color}14`} />
+      </g>
+    </svg>
+  )
+}
+
+// ---- Kalasam (decorative pot + coconut) ----
+export function Kalasam({ className = '', size = 60 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 120" className={className} aria-hidden="true">
+      <g stroke="#9C7C1A" strokeWidth="2">
+        <ellipse cx="50" cy="40" rx="20" ry="14" fill="#1E7A52" />
+        <path d="M30 44 C30 80 38 104 50 110 C62 104 70 80 70 44 Z" fill="#EE7B0C" />
+        <path d="M34 58 H66 M32 72 H68 M34 86 H66" stroke="#FFD34D" strokeWidth="3" fill="none" />
+        <circle cx="50" cy="22" r="10" fill="#C85A00" />
+        <path d="M50 12 C46 4 54 4 50 12" fill="#7A3E0A" />
+      </g>
+    </svg>
+  )
+}
+
 // ---- Sunflower / rangoli divider ----
 export function SunDivider({ className = '' }) {
   return (

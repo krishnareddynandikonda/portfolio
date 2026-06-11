@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Download } from 'lucide-react'
-import { Photo, Mandala, SunDivider, RangoliCorner, Sunflower } from './shared.jsx'
+import { Photo, Mandala, SunDivider, RangoliCorner, Sunflower, Kalasam, Lotus } from './shared.jsx'
 
 export default function Hero({ data, onView, onDownload }) {
   return (
@@ -11,6 +11,8 @@ export default function Hero({ data, onView, onDownload }) {
       <RangoliCorner className="absolute right-0 top-0 h-40 w-40 -scale-x-100" />
       <RangoliCorner className="absolute bottom-0 left-0 h-40 w-40 -scale-y-100" />
       <RangoliCorner className="absolute bottom-0 right-0 h-40 w-40 -scale-100" />
+      <Kalasam size={66} className="absolute left-1/2 top-6 z-10 -translate-x-1/2 animate-sway" />
+      <Lotus size={120} className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-50" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2">
         {/* Text */}

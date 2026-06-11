@@ -1,4 +1,4 @@
-import { Reveal, SunDivider, Mandala } from './shared.jsx'
+import { Reveal, SunDivider, Mandala, Lotus } from './shared.jsx'
 
 export default function Intro({ data }) {
   return (
@@ -6,6 +6,11 @@ export default function Intro({ data }) {
       <Mandala className="-right-40 top-10" size={420} color="#0E7C9B" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+        <Reveal>
+          <div className="mb-6 flex justify-center">
+            <Lotus size={84} color="#7A1220" />
+          </div>
+        </Reveal>
         <Reveal>
           <p className="te text-2xl font-semibold text-saffron md:text-3xl">{data.teHeading}</p>
           <h2 className="mt-1 font-heading text-4xl font-semibold text-maroon md:text-5xl">

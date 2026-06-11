@@ -46,6 +46,18 @@ export default {
           '0%, 100%': { transform: 'translateY(0) rotate(-6deg)' },
           '50%': { transform: 'translateY(-10px) rotate(6deg)' },
         },
+        fall: {
+          '0%': { transform: 'translateY(-12vh) translateX(0) rotate(0deg)', opacity: '0' },
+          '8%': { opacity: '1' },
+          '90%': { opacity: '1' },
+          '100%': { transform: 'translateY(112vh) translateX(60px) rotate(320deg)', opacity: '0' },
+        },
+        fallAlt: {
+          '0%': { transform: 'translateY(-12vh) translateX(0) rotate(0deg)', opacity: '0' },
+          '10%': { opacity: '1' },
+          '90%': { opacity: '1' },
+          '100%': { transform: 'translateY(112vh) translateX(-50px) rotate(-300deg)', opacity: '0' },
+        },
         drift: {
           '0%': { backgroundPosition: '0 0' },
           '100%': { backgroundPosition: '120px 0' },

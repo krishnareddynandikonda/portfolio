@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import profileData from './data/profileData.js'
 
 import LoadingScreen from './components/LoadingScreen.jsx'
-import FloatingSunflowers from './components/FloatingSunflowers.jsx'
+import FloatingFlowerShower from './components/FloatingFlowerShower.jsx'
 import Hero from './components/Hero.jsx'
 import Intro from './components/Intro.jsx'
 import PhotoStory from './components/PhotoStory.jsx'
@@ -36,7 +36,7 @@ export default function App() {
         {loading && <LoadingScreen data={profileData.loading} />}
       </AnimatePresence>
 
-      <FloatingSunflowers count={20} />
+      <FloatingFlowerShower count={28} />
 
       <main className="relative z-10">
         <Hero data={profileData.hero} onView={scrollToProfile} onDownload={downloadBiodata} />
