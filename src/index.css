@@ -56,11 +56,13 @@ body {
     color: transparent;
   }
   .gold-text {
-    background: linear-gradient(180deg, #f0d98c 0%, #c9a227 55%, #9c7c1a 100%);
+    background: linear-gradient(100deg, #bf953f 0%, #fcf6ba 22%, #b38728 45%, #fbf5b7 68%, #aa771c 100%);
+    background-size: 220% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    animation: goldShimmer 7s linear infinite;
   }
 
   /* ---- Section backgrounds (rich, multi-color) ---- */
@@ -377,5 +379,24 @@ body {
   100% {
     transform: translateY(-115vh) translateX(50px) rotate(220deg);
     opacity: 0;
+  }
+}
+
+/* gold foil shimmer sweep */
+@keyframes goldShimmer {
+  to {
+    background-position: 220% center;
+  }
+}
+
+/* Accessibility: honor reduced-motion — kill heavy looping motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Photo, Mandala, Sunflower, Garland, RangoliCorner } from './shared.jsx'
-import { Toranam } from './CulturalArtwork.jsx'
+import { Photo, Mandala, Sunflower, Garland, RangoliCorner, Kalasam } from './shared.jsx'
+import { Toranam, MandapamFrame } from './CulturalArtwork.jsx'
 
 // One rich cultural color mood per story chapter (per the wedding brief)
 const STORY_MOODS = [
@@ -57,20 +57,18 @@ function StoryRow({ item, index }) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className={`relative mx-auto w-full max-w-md ${reversed ? 'md:order-2' : 'md:order-1'}`}
+          className={`relative mx-auto w-full max-w-md px-6 pb-2 pt-9 ${reversed ? 'md:order-2' : 'md:order-1'}`}
         >
           <span
-            className="glow-blob -left-6 -top-6 h-40 w-40"
+            className="glow-blob -left-2 top-6 h-40 w-40"
             style={{ background: glow }}
           />
           <span
-            className="glow-blob -bottom-6 -right-6 h-40 w-40"
+            className="glow-blob -bottom-2 -right-2 h-40 w-40"
             style={{ background: GLOWS[(index + 2) % GLOWS.length] }}
           />
-          <Sunflower
-            size={46}
-            className="absolute -right-3 -top-5 z-20 animate-sway drop-shadow"
-          />
+          <MandapamFrame />
+          <Kalasam size={34} className="absolute left-1/2 top-0 z-30 -translate-x-1/2 animate-sway" />
           <div className="arch-frame relative z-10">
             <div className="inner aspect-[3/4]">
               <Photo src={item.photo} alt={item.title} label={`Story ${num}`} />

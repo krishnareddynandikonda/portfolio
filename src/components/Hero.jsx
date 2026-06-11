@@ -56,7 +56,7 @@ export default function Hero({ data, onView, onDownload }) {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.45 }}
-            className="name-en mx-auto mt-3 text-cream md:mx-0"
+            className="name-en gold-text mx-auto mt-3 uppercase tracking-[0.18em] md:mx-0"
           >
             {data.name}
           </motion.p>
