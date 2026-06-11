@@ -1,12 +1,10 @@
 import * as Icons from 'lucide-react'
 import { Reveal, SectionHeading, Mandala } from './shared.jsx'
-import { Toranam } from './CulturalArtwork.jsx'
 
 export default function FamilyBackground({ data }) {
   return (
-    <section id="family" className="cream-bg texture relative overflow-hidden py-28">
-      <Toranam className="absolute inset-x-0 top-0 h-12 opacity-90" />
-      <Mandala className="-left-44 top-1/4" size={460} color="#1E7A52" />
+    <section id="family" className="cream-bg relative overflow-hidden py-28">
+      <Mandala className="-left-44 top-1/4 opacity-[0.06]" size={460} color="#1E7A52" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         <Reveal>

@@ -19,11 +19,11 @@ export default {
         ink: '#3A2412',
       },
       fontFamily: {
-        heading: ['"Playfair Display"', 'serif'],
+        heading: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
         display: ['"Cormorant Garamond"', 'serif'],
-        body: ['Lora', 'serif'],
-        accent: ['Cinzel', 'serif'],
-        telugu: ['"Baloo Tammudu 2"', '"Noto Sans Telugu"', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+        accent: ['Marcellus', 'serif'],
+        telugu: ['"Noto Serif Telugu"', '"Noto Sans Telugu"', 'serif'],
         'telugu-body': ['"Noto Sans Telugu"', 'sans-serif'],
       },
       boxShadow: {

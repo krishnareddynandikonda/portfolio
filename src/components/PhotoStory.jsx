@@ -1,74 +1,50 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Photo, Mandala, Sunflower, Garland, RangoliCorner, Kalasam } from './shared.jsx'
-import { Toranam, MandapamFrame } from './CulturalArtwork.jsx'
+import { Photo, Mandala, SunDivider } from './shared.jsx'
 
-// One rich cultural color mood per story chapter (per the wedding brief)
+const EASE = [0.22, 1, 0.36, 1]
+
+// One quiet color mood per chapter — calm, alternating, never neon
 const STORY_MOODS = [
-  // 01 saffron + maroon + gold
-  'radial-gradient(700px 460px at 10% 0%, rgba(238,123,12,.30), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(122,18,32,.20), transparent 60%), linear-gradient(180deg,#fff3df,#ffe3b8)',
-  // 02 peacock blue + ivory + gold
-  'radial-gradient(700px 460px at 0% 0%, rgba(14,124,155,.26), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(201,162,39,.22), transparent 60%), linear-gradient(180deg,#f3fbfd,#dcf0f6)',
-  // 03 lotus pink + maroon + emerald
-  'radial-gradient(700px 460px at 0% 0%, rgba(229,99,155,.30), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(30,122,82,.16), transparent 60%), linear-gradient(180deg,#fff2f7,#ffdfeb)',
-  // 04 emerald + ivory + gold
-  'radial-gradient(700px 460px at 10% 0%, rgba(30,122,82,.26), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(201,162,39,.22), transparent 60%), linear-gradient(180deg,#f1fbf5,#daf1e4)',
-  // 05 turmeric + maroon + emerald
-  'radial-gradient(700px 460px at 0% 0%, rgba(245,183,0,.34), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(30,122,82,.18), transparent 60%), linear-gradient(180deg,#fff6cf,#ffe79e)',
-  // 06 sandalwood cream + lotus pink + gold
-  'radial-gradient(700px 460px at 100% 0%, rgba(229,99,155,.20), transparent 60%), radial-gradient(700px 460px at 0% 100%, rgba(201,162,39,.22), transparent 60%), linear-gradient(180deg,#fdf3e4,#f2e2c6)',
-  // 07 lotus pink + peacock blue + ivory
-  'radial-gradient(700px 460px at 0% 0%, rgba(229,99,155,.24), transparent 60%), radial-gradient(700px 460px at 100% 100%, rgba(14,124,155,.22), transparent 60%), linear-gradient(180deg,#fff3f8,#e8f3f8)',
-  // 08 deep maroon + gold + lotus (dark)
-  'radial-gradient(760px 520px at 50% -10%, rgba(201,162,39,.32), transparent 62%), radial-gradient(640px 480px at 100% 100%, rgba(229,99,155,.28), transparent 60%), linear-gradient(180deg,#6a1020,#48101f)',
-  // 09 royal purple + saffron + gold (dark)
-  'radial-gradient(760px 520px at 50% -10%, rgba(201,162,39,.28), transparent 62%), radial-gradient(640px 480px at 0% 100%, rgba(238,123,12,.26), transparent 60%), linear-gradient(180deg,#3c1a5a,#2a134a)',
-  // 10 gold + maroon + lotus + ivory (blessing)
-  'radial-gradient(760px 520px at 50% 0%, rgba(201,162,39,.32), transparent 62%), radial-gradient(640px 480px at 100% 100%, rgba(229,99,155,.18), transparent 60%), linear-gradient(180deg,#fff6df,#ffe9c2)',
+  'linear-gradient(180deg,#fbf3e6,#f6ead4)', // ivory warm
+  'linear-gradient(180deg,#eef5f6,#e2eef1)', // soft peacock mist
+  'linear-gradient(180deg,#fbf0f4,#f6e2ea)', // soft lotus
+  'linear-gradient(180deg,#eef5ef,#e0eee4)', // soft emerald
+  'linear-gradient(180deg,#fbf2dd,#f6e8c4)', // soft turmeric
+  'linear-gradient(180deg,#faf3e8,#f1e6d2)', // sandalwood
+  'linear-gradient(180deg,#f1f4f6,#e7eef1)', // pale blue
+  'linear-gradient(180deg,#42101c,#330b15)', // deep maroon (dark)
+  'linear-gradient(180deg,#2c1846,#241046)', // royal purple (dark)
+  'linear-gradient(180deg,#fbf3df,#f6e9c6)', // gold blessing
 ]
-const GLOWS = ['#F5B700', '#E5639B', '#0E7C9B', '#1E7A52', '#EE7B0C']
+const DARK_STORIES = new Set([7, 8])
 
 function StoryRow({ item, index }) {
   const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50])
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+  const y = useTransform(scrollYProgress, [0, 1], [40, -40])
 
   const reversed = index % 2 === 1
   const num = String(index + 1).padStart(2, '0')
-  const glow = GLOWS[index % GLOWS.length]
+  const dark = DARK_STORIES.has(index)
 
   return (
-    <div
-      ref={ref}
-      className="texture relative overflow-hidden"
-      style={{ background: STORY_MOODS[index % STORY_MOODS.length] }}
-    >
-      <RangoliCorner className="absolute left-0 top-0 h-28 w-28 opacity-70" />
-      <RangoliCorner className="absolute bottom-0 right-0 h-28 w-28 -scale-100 opacity-70" />
-
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-6 py-14 md:grid-cols-2 md:gap-14 md:py-20">
-        {/* Photo */}
+    <div ref={ref} className="relative overflow-hidden" style={{ background: STORY_MOODS[index % STORY_MOODS.length] }}>
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:gap-16 md:py-28">
+        {/* Photo — clean arch */}
         <motion.div
           style={{ y }}
-          initial={{ opacity: 0, scale: 0.94 }}
+          initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className={`relative mx-auto w-full max-w-md px-6 pb-2 pt-9 ${reversed ? 'md:order-2' : 'md:order-1'}`}
+          transition={{ duration: 0.9, ease: EASE }}
+          className={`relative mx-auto w-full max-w-xs md:max-w-sm ${reversed ? 'md:order-2' : 'md:order-1'}`}
         >
-          <span
-            className="glow-blob -left-2 top-6 h-40 w-40"
-            style={{ background: glow }}
+          <Mandala
+            className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]"
+            size={420}
+            color={dark ? '#E6C766' : '#6a0f1a'}
           />
-          <span
-            className="glow-blob -bottom-2 -right-2 h-40 w-40"
-            style={{ background: GLOWS[(index + 2) % GLOWS.length] }}
-          />
-          <MandapamFrame />
-          <Kalasam size={34} className="absolute left-1/2 top-0 z-30 -translate-x-1/2 animate-sway" />
           <div className="arch-frame relative z-10">
             <div className="inner aspect-[3/4]">
               <Photo src={item.photo} alt={item.title} label={`Story ${num}`} />
@@ -76,27 +52,29 @@ function StoryRow({ item, index }) {
           </div>
         </motion.div>
 
-        {/* Text card */}
+        {/* Text */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className={`${reversed ? 'md:order-1' : 'md:order-2'}`}
+          transition={{ duration: 0.8, delay: 0.12, ease: EASE }}
+          className={`text-center md:text-left ${reversed ? 'md:order-1' : 'md:order-2'}`}
         >
-          <div className="card card-accent px-7 py-9 text-center md:px-9 md:text-left">
-            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-saffron to-kumkum px-4 py-1 font-accent text-sm text-white shadow-sun">
-              <Sunflower size={18} /> {num}
-            </span>
-            <h3 className="te mt-4 text-3xl font-bold text-kumkum md:text-4xl">{item.teTitle}</h3>
-            <p className="mt-1 font-heading text-2xl font-semibold text-maroon md:text-3xl">
-              {item.title}
-            </p>
-            <div className="mt-4 flex justify-center md:justify-start">
-              <Garland count={7} />
-            </div>
-            <p className="mt-5 font-body text-lg leading-relaxed text-ink/80">{item.text}</p>
+          <span className={`eyebrow text-xs ${dark ? 'text-gold-soft/80' : 'text-maroon/50'}`}>
+            Chapter {num}
+          </span>
+          <h3 className={`te mt-3 text-2xl font-semibold md:text-3xl ${dark ? 'text-gold-soft' : 'text-maroon'}`}>
+            {item.teTitle}
+          </h3>
+          <p className={`mt-1 font-heading text-xl font-medium md:text-2xl ${dark ? 'text-ivory/85' : 'text-maroon/80'}`}>
+            {item.title}
+          </p>
+          <div className="mt-5 md:flex md:justify-start">
+            <SunDivider />
           </div>
+          <p className={`mt-6 text-base leading-relaxed ${dark ? 'text-ivory/70' : 'text-ink/70'}`}>
+            {item.text}
+          </p>
         </motion.div>
       </div>
     </div>
@@ -106,17 +84,15 @@ function StoryRow({ item, index }) {
 export default function PhotoStory({ items }) {
   return (
     <section id="story" className="relative">
-      <div className="sun-bg texture relative overflow-hidden py-16 text-center">
-        <Toranam className="absolute inset-x-0 top-0 h-12 opacity-90" />
-        <Mandala className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" size={520} />
+      <div className="cream-bg relative overflow-hidden py-20 text-center">
         <div className="relative z-10">
-          <div className="mb-4 flex justify-center">
-            <Garland count={11} />
-          </div>
-          <p className="te text-3xl font-bold text-kumkum md:text-4xl">కథ • పది చిత్రాలు</p>
-          <h2 className="mt-1 font-heading text-4xl font-semibold text-maroon md:text-5xl">
+          <p className="te text-2xl font-semibold text-maroon/80 md:text-3xl">కథ • పది చిత్రాలు</p>
+          <h2 className="mt-1 font-heading text-3xl font-semibold text-maroon md:text-4xl">
             A Story in Ten Frames
           </h2>
+          <div className="mt-5 flex justify-center">
+            <SunDivider />
+          </div>
         </div>
       </div>
 

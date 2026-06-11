@@ -126,22 +126,19 @@ export function Garland({ count = 11, className = '' }) {
 export function SectionHeading({ teHeading, heading, center = true, dark = false }) {
   return (
     <div className={center ? 'text-center' : ''}>
-      <div className={`mb-4 ${center ? 'flex justify-center' : ''}`}>
-        <Garland count={9} />
-      </div>
       {teHeading && (
-        <p className={`te text-3xl font-bold md:text-4xl ${dark ? 'text-gold-soft' : 'text-kumkum'}`}>
+        <p className={`te text-2xl font-semibold md:text-3xl ${dark ? 'text-gold-soft' : 'text-maroon/80'}`}>
           {teHeading}
         </p>
       )}
       <h2
-        className={`mt-1 font-heading text-4xl font-semibold md:text-5xl ${
+        className={`mt-1 font-heading text-3xl font-semibold tracking-wide md:text-4xl ${
           dark ? 'gold-text' : 'text-maroon'
         }`}
       >
         {heading}
       </h2>
-      <div className="mt-5 flex justify-center">
+      <div className={`mt-5 ${center ? 'flex justify-center' : ''}`}>
         <SunDivider />
       </div>
     </div>

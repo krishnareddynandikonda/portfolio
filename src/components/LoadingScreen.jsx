@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Sunflower } from './shared.jsx'
+import { Lotus } from './shared.jsx'
 
 export default function LoadingScreen({ data }) {
   return (
@@ -9,36 +9,19 @@ export default function LoadingScreen({ data }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.9, ease: 'easeInOut' }}
     >
-      {/* soft floating sunflowers */}
-      {Array.from({ length: 6 }).map((_, i) => (
-        <span
-          key={i}
-          className="absolute bottom-[-50px]"
-          style={{
-            left: `${10 + i * 15}%`,
-            animation: `floatUp ${16 + i * 2}s linear ${i * 1.5}s infinite`,
-            opacity: 0.4,
-          }}
-        >
-          <Sunflower size={28 + (i % 3) * 10} />
-        </span>
-      ))}
-
       <motion.div
-        initial={{ scale: 0.6, opacity: 0, rotate: -30 }}
-        animate={{ scale: 1, opacity: 1, rotate: 0 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="relative flex h-28 w-28 items-center justify-center"
+        initial={{ scale: 0.85, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
       >
-        <span className="absolute inset-0 rounded-full bg-sunflower/40 blur-2xl animate-glow" />
-        <Sunflower size={88} />
+        <Lotus size={88} color="#d8b85f" />
       </motion.div>
 
       <motion.h1
-        initial={{ y: 16, opacity: 0 }}
+        initial={{ y: 14, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="te mt-7 text-4xl font-bold gold-text md:text-5xl"
+        transition={{ duration: 1, delay: 0.35 }}
+        className="te mt-6 text-4xl font-semibold gold-text md:text-5xl"
       >
         {data.blessing}
       </motion.h1>
@@ -46,11 +29,19 @@ export default function LoadingScreen({ data }) {
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.55 }}
-        className="name-en mx-auto mt-3 text-center text-cream"
+        transition={{ duration: 1, delay: 0.6 }}
+        className="name-en mx-auto mt-3 text-center text-ivory/70"
       >
         {data.name}
       </motion.p>
+
+      {/* slim gold progress line */}
+      <motion.span
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={{ scaleX: 1, opacity: 1 }}
+        transition={{ duration: 1.6, delay: 0.5, ease: 'easeInOut' }}
+        className="mt-8 h-px w-40 origin-left bg-gradient-to-r from-transparent via-gold to-transparent"
+      />
     </motion.div>
   )
 }

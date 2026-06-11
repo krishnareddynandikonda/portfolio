@@ -12,9 +12,9 @@ html {
 
 body {
   margin: 0;
-  background: #fffbef;
-  color: #3a2412;
-  font-family: 'Lora', serif;
+  background: #faf4ea;
+  color: #2c2018;
+  font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -22,7 +22,7 @@ body {
 @layer components {
   /* ---- Telugu helpers ---- */
   .te {
-    font-family: 'Baloo Tammudu 2', 'Noto Sans Telugu', sans-serif;
+    font-family: 'Noto Serif Telugu', 'Noto Sans Telugu', serif;
   }
   .te-body {
     font-family: 'Noto Sans Telugu', sans-serif;
@@ -40,10 +40,10 @@ body {
   .name-en {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
-    line-height: 1.16;
-    letter-spacing: 0.015em;
-    font-size: clamp(1.35rem, 3.1vw, 2.35rem);
-    max-width: 22ch;
+    line-height: 1.25;
+    letter-spacing: 0.12em;
+    font-size: clamp(1rem, 2.4vw, 1.6rem);
+    max-width: 30ch;
     text-wrap: balance;
   }
 
@@ -56,13 +56,11 @@ body {
     color: transparent;
   }
   .gold-text {
-    background: linear-gradient(100deg, #bf953f 0%, #fcf6ba 22%, #b38728 45%, #fbf5b7 68%, #aa771c 100%);
-    background-size: 220% auto;
+    background: linear-gradient(180deg, #d8b85f 0%, #c8a24a 55%, #a9842f 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: goldShimmer 7s linear infinite;
   }
 
   /* ---- Section backgrounds (rich, multi-color) ---- */
@@ -165,70 +163,60 @@ body {
     gap: 14px;
   }
   .sun-divider .line {
-    height: 2px;
-    width: 80px;
-    background: linear-gradient(90deg, transparent, #ee7b0c, #f5b700, transparent);
-    border-radius: 2px;
+    height: 1px;
+    width: 70px;
+    background: linear-gradient(90deg, transparent, #c8a24a, transparent);
   }
   .sun-divider .dot {
-    width: 9px;
-    height: 9px;
+    width: 6px;
+    height: 6px;
     transform: rotate(45deg);
-    background: linear-gradient(135deg, #ffd34d, #ee7b0c);
-    box-shadow: 0 0 12px rgba(245, 183, 0, 0.7);
+    background: #c8a24a;
   }
 
-  /* ---- Premium temple-arch photo frame ---- */
+  /* ---- Clean modern arch-top portrait ---- */
   .arch-frame {
     position: relative;
-    padding: 9px;
-    border-radius: 50% 50% 14px 14px / 28% 28% 14px 14px;
-    background: linear-gradient(150deg, #ffd34d, #f5b700 38%, #ee7b0c 75%, #c9a227 100%);
-    box-shadow: 0 22px 55px rgba(238, 123, 12, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.45);
   }
   .arch-frame .inner {
     position: relative;
     overflow: hidden;
-    border-radius: 46% 46% 10px 10px / 26% 26% 10px 10px;
-    background: #fff7e6;
-    box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.85), inset 0 0 0 5px rgba(245, 183, 0, 0.5);
+    border-radius: 46% 46% 12px 12px / 24% 24% 12px 12px;
+    background: #f1e7d4;
+    border: 1px solid rgba(200, 162, 74, 0.55);
+    box-shadow: 0 34px 70px rgba(0, 0, 0, 0.30), 0 10px 24px rgba(0, 0, 0, 0.12);
   }
 
-  /* ---- Simple gold-bordered photo frame (gallery / story) ---- */
+  /* ---- Clean gallery photo frame ---- */
   .sun-frame {
     position: relative;
-    padding: 8px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #ffd34d, #f5b700 45%, #ee7b0c 100%);
-    box-shadow: 0 16px 42px rgba(238, 123, 12, 0.25);
   }
   .sun-frame .inner {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
-    background: #fff7e6;
+    border-radius: 12px;
+    background: #f1e7d4;
+    border: 1px solid rgba(200, 162, 74, 0.5);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
   }
 
-  /* ---- Cards (warm, festive) ---- */
+  /* ---- Cards (clean, modern) ---- */
   .card {
     position: relative;
-    background: linear-gradient(165deg, #fffdf5 0%, #fff4d4 100%);
-    border: 1px solid rgba(238, 123, 12, 0.35);
-    border-radius: 18px;
-    box-shadow: 0 16px 40px rgba(193, 18, 31, 0.08), 0 6px 18px rgba(238, 123, 12, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    background: #fffdf8;
+    border: 1px solid rgba(200, 162, 74, 0.32);
+    border-radius: 16px;
+    box-shadow: 0 18px 44px rgba(60, 30, 20, 0.08), 0 4px 12px rgba(60, 30, 20, 0.05);
   }
-  /* colorful top accent bar */
+  /* thin gold hairline accent */
   .card-accent::after {
     content: '';
     position: absolute;
-    left: 14%;
-    right: 14%;
+    left: 18%;
+    right: 18%;
     top: 0;
-    height: 3px;
-    border-radius: 3px;
-    background: linear-gradient(90deg, #C1121F, #EE7B0C, #F5B700, #1E7A52, #0E7C9B);
-    opacity: 0.85;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c8a24a, transparent);
   }
 
   /* ---- Marigold garland divider ---- */
@@ -265,34 +253,31 @@ body {
 
   /* ---- Buttons ---- */
   .btn-sun {
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.06em;
-    font-weight: 600;
-    color: #5a1208;
-    background: linear-gradient(180deg, #ffd860, #f5b700 50%, #ee7b0c 100%);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 12px 28px rgba(245, 183, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    font-family: 'Marcellus', serif;
+    letter-spacing: 0.08em;
+    color: #2c2018;
+    background: linear-gradient(180deg, #d8b85f, #c8a24a 55%, #a9842f 100%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 26px rgba(168, 130, 47, 0.30);
     border-radius: 999px;
-    transition: transform 0.25s, box-shadow 0.25s;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
   .btn-sun:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 38px rgba(238, 123, 12, 0.55);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(168, 130, 47, 0.4);
   }
   .btn-outline {
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.06em;
-    font-weight: 600;
-    color: #b3550a;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(238, 123, 12, 0.55);
+    font-family: 'Marcellus', serif;
+    letter-spacing: 0.08em;
+    color: #a9842f;
+    background: transparent;
+    border: 1px solid rgba(200, 162, 74, 0.6);
     border-radius: 999px;
-    transition: all 0.25s;
+    transition: all 0.3s;
   }
   .btn-outline:hover {
-    background: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(238, 123, 12, 0.2);
+    background: rgba(200, 162, 74, 0.08);
+    transform: translateY(-2px);
   }
 
   /* ---- Placeholder fill ---- */
@@ -320,7 +305,7 @@ body {
 }
 
 .eyebrow {
-  font-family: 'Cinzel', serif;
+  font-family: 'Marcellus', serif;
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }

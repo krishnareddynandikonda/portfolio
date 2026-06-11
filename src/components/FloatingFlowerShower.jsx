@@ -59,8 +59,8 @@ export default function FloatingFlowerShower({ count = 42 }) {
           size: base * (0.7 + depth * 0.6),
           duration: 16 + Math.random() * 18,
           delay: -Math.random() * 34,
-          opacity: 0.18 + depth * 0.4,
-          blur: (1 - depth) * 1.4,
+          opacity: 0.1 + depth * 0.22,
+          blur: (1 - depth) * 1.6,
           kind,
           alt: i % 2 === 0,
         }
